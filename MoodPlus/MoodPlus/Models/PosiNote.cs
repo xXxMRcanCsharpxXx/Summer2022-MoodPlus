@@ -1,6 +1,6 @@
 ﻿namespace MoodPlus.Models
 {
-    public class ActOfKindness
+    public class PosiNote
     {
         public int id { get; set; }
         //recieve or share a random positive encouragment message to a random user
