@@ -2,10 +2,12 @@
 {
     public class PosiNote
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         //recieve or share a random positive encouragment message to a random user
         public string Quote { get; set; }
-        public List<string> Quotes { get; set; }
-        
+
+        public int SenderId { get; set; }
+        public int RecieverId { get; set; }
+       // Allows us to track sending/recieving quotes between users.
     }
 }
