@@ -1,4 +1,6 @@
-﻿namespace MoodPlus.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MoodPlus.Models
 {
     public class Patient
     {
@@ -6,8 +8,12 @@
         public string UserId { get; set; }
         public virtual User User { get; set; }
         public virtual List<Entry> Entries { get; set; }
-        public virtual List<PosiNote> PositiveNote { get; set; }
-        public int HighScore { get; set; }
+        [InverseProperty("Receiver")]
+        public virtual ICollection<PosiNote> Inbox { get; set; }
+        [InverseProperty("Sender")]
+        public virtual ICollection<PosiNote> Outbox { get; set; }
+        public int Streak { get; set; }
+        public int LongestStreak { get; set; }
     }
    
 }

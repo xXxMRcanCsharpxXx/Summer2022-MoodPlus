@@ -6,7 +6,7 @@
         public int PatientId { get; set; }
         public DateTime Date { get; set; }
         public virtual List<MoodRating> Moods { get; set; }
-        public string Body { get; set; }
+        public string? Body { get; set; }
 
     }
 
