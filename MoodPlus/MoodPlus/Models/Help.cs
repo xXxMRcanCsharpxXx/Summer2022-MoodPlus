@@ -1,6 +1,6 @@
 ﻿namespace MoodPlus.Models
 {
-    public class Hel
+    public class Help
     {
     }
 }
