@@ -10,10 +10,9 @@ namespace MoodPlus.Data
             : base(options)
         {
         }
-        public DbSet<Mood> Moods { get; set; }
+        public DbSet<Entry> Moods { get; set; }
         public DbSet<MoodRating> MoodRatings { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Journal> Journals { get; set; }
         public DbSet<Patient> Patients { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,10 +22,13 @@ namespace MoodPlus.Data
             base.OnConfiguring(optionsBuilder);
         }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Mood>().HasData(
-                new Mood() { Id = 1, PatientId = 1, Date = DateTime.Now }
+            modelBuilder.Entity<Entry>().HasData(
+                new Entry() { Id = 1, PatientId = 1, Date = DateTime.Now }, // reminder put feeling
+                new Entry() { Id = 2, PatientId = 2, Date = DateTime.Now }
                 );
         }
     }
