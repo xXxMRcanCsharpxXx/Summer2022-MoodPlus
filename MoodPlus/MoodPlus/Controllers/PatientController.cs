@@ -9,8 +9,8 @@ namespace MoodPlus.Controllers
     public class PatientController : Controller
     {
         public ApplicationDbContext db { get; set; }
-        public SignInManager<User> signInManager { get; set; }
-        public PatientController(ApplicationDbContext db, SignInManager<User> signInManager)
+        public SignInManager<Account> signInManager { get; set; }
+        public PatientController(ApplicationDbContext db, SignInManager<Account> signInManager)
         {
             this.db = db;
             this.signInManager = signInManager;
@@ -22,13 +22,11 @@ namespace MoodPlus.Controllers
             return View(db.Patients.Find(id));
         }
 
-        [Authorize]
         public IActionResult Create()
         {
             return View( new Patient());
         }
 
-        [Authorize]
         [HttpPost]
         public IActionResult Create(Patient model)
         {

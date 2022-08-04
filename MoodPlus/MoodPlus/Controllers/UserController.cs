@@ -9,9 +9,9 @@ namespace MoodPlus.Controllers
     public class UserController : Controller
     {
         public ApplicationDbContext db { get; set; }
-        public SignInManager<User> signInManager { get; set; }
+        public SignInManager<Account> signInManager { get; set; }
 
-        public UserController(ApplicationDbContext db, SignInManager<User> signInManager)
+        public UserController(ApplicationDbContext db, SignInManager<Account> signInManager)
         {
             this.db = db;
             this.signInManager = signInManager;
@@ -32,7 +32,7 @@ namespace MoodPlus.Controllers
 
         public IActionResult Delete(int id)
         {
-            User user = db.Users.Find(id);
+            Account user = db.Accounts.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index", "Home"); // We could have this redirect somewhere else instead.
@@ -41,15 +41,15 @@ namespace MoodPlus.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            return View(new User());   
+            return View(new Account());   
         }
 
         [Authorize]
         [HttpPost]
 
-        public IActionResult Create(User model)
+        public IActionResult Create(Account model)
         {
-            User user = new User() { UserName = model.UserName, UserGoal = model.UserGoal, Password = model.Password, Email = model.Email };
+            Account user = new Account() { UserName = model.UserName, UserGoal = model.UserGoal, Password = model.Password, Email = model.Email };
             db.Users.Add(user);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
@@ -57,7 +57,7 @@ namespace MoodPlus.Controllers
 
         public IActionResult Edit(int id)
         {
-            User user = db.Users.Find(id);
+            Account user = db.Accounts.Find(id);
             if(user == null)
             {
                 return View("Error");
@@ -67,7 +67,7 @@ namespace MoodPlus.Controllers
 
         [HttpPost]
 
-        public IActionResult Edit(User model)
+        public IActionResult Edit(Account model)
         {
             db.Users.Update(model);
             db.SaveChanges();

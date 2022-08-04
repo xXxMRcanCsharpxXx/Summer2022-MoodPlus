@@ -10,7 +10,7 @@ namespace MoodPlus.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
         public DbSet<Entry> Entries { get; set; }
         public DbSet<MoodRating> MoodRatings { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Patient> Patients { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,20 +22,13 @@ namespace MoodPlus.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Entry>().HasData(
-            //    new Entry() { Id = 1, PatientId = 1, Date = DateTime.Now },
-            //    new Entry() { Id = 2, PatientId = 2, Date = DateTime.Now }
-            //    );
-            modelBuilder.Entity<User>().HasData(
-                new User() { Id="test", UserName="test", Password="text", Email="text"}
+            modelBuilder.Entity<Account>().HasData(
+                    new Account() { Id = "test", Email = "test", Password = "test", Name = "test"}
                 );
             modelBuilder.Entity<Patient>().HasData(
-                new Patient() { Id=1, UserId="test", Streak=0, LongestStreak=0}
-           
+                    new Patient() { Id = 1, AccountId = "test", Streak = 0, LongestStreak = 0}
                 );
             base.OnModelCreating(modelBuilder);
         }
-
-        public DbSet<MoodPlus.Data.TempEntry>? TempEntry { get; set; }
     }
 }

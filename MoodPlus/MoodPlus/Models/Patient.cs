@@ -5,8 +5,8 @@ namespace MoodPlus.Models
     public class Patient
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
-        public virtual User User { get; set; }
+        public string AccountId { get; set; }
+        public virtual Account Account { get; set; }
         public virtual List<Entry> Entries { get; set; }
         [InverseProperty("Receiver")]
         public virtual ICollection<PosiNote> Inbox { get; set; }
@@ -14,6 +14,7 @@ namespace MoodPlus.Models
         public virtual ICollection<PosiNote> Outbox { get; set; }
         public int Streak { get; set; }
         public int LongestStreak { get; set; }
+        public DateTime LastLogin { get; set; }
     }
    
 }

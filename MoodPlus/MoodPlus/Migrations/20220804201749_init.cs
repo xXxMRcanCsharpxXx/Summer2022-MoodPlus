@@ -29,6 +29,7 @@ namespace MoodPlus.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserGoal = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -49,47 +50,6 @@ namespace MoodPlus.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TempEntry",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PatientId = table.Column<int>(type: "int", nullable: false),
-                    Body = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Anxiety = table.Column<bool>(type: "bit", nullable: false),
-                    AnxietyRating = table.Column<int>(type: "int", nullable: false),
-                    Cheerful = table.Column<bool>(type: "bit", nullable: false),
-                    CheerfulRating = table.Column<int>(type: "int", nullable: false),
-                    Happiness = table.Column<bool>(type: "bit", nullable: false),
-                    HappinessRating = table.Column<int>(type: "int", nullable: false),
-                    Loneliness = table.Column<bool>(type: "bit", nullable: false),
-                    LonelinessRating = table.Column<int>(type: "int", nullable: false),
-                    Restless = table.Column<bool>(type: "bit", nullable: false),
-                    RestlessRating = table.Column<int>(type: "int", nullable: false),
-                    Grumpy = table.Column<bool>(type: "bit", nullable: false),
-                    GrumpyRating = table.Column<int>(type: "int", nullable: false),
-                    Sadness = table.Column<bool>(type: "bit", nullable: false),
-                    SadnessRating = table.Column<int>(type: "int", nullable: false),
-                    Overwhelmed = table.Column<bool>(type: "bit", nullable: false),
-                    OverwhelmedRating = table.Column<int>(type: "int", nullable: false),
-                    Aggravated = table.Column<bool>(type: "bit", nullable: false),
-                    AggravatedRating = table.Column<int>(type: "int", nullable: false),
-                    Anger = table.Column<bool>(type: "bit", nullable: false),
-                    AngerRating = table.Column<int>(type: "int", nullable: false),
-                    Calm = table.Column<bool>(type: "bit", nullable: false),
-                    CalmRating = table.Column<int>(type: "int", nullable: false),
-                    Loved = table.Column<bool>(type: "bit", nullable: false),
-                    LovedRating = table.Column<int>(type: "int", nullable: false),
-                    Shameful = table.Column<bool>(type: "bit", nullable: false),
-                    ShamefulRating = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TempEntry", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -138,8 +98,8 @@ namespace MoodPlus.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -183,8 +143,8 @@ namespace MoodPlus.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -204,16 +164,17 @@ namespace MoodPlus.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AccountId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Streak = table.Column<int>(type: "int", nullable: false),
-                    LongestStreak = table.Column<int>(type: "int", nullable: false)
+                    LongestStreak = table.Column<int>(type: "int", nullable: false),
+                    LastLogin = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Patients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Patients_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Patients_AspNetUsers_AccountId",
+                        column: x => x.AccountId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -290,13 +251,13 @@ namespace MoodPlus.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserGoal", "UserName" },
-                values: new object[] { "f5f7e5dd-7ed9-45fb-a974-79acc7f316fb", 0, "24b6dbb7-af20-41c4-8363-7cfc58d97597", "User", null, false, false, null, null, null, "text", null, null, false, "ac422bbe-3913-4c73-bd8c-1be3363a4977", false, null, null });
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserGoal", "UserName" },
+                values: new object[] { "1bf796ea-cd7f-40c7-9bc6-1c9beeb53d27", 0, "ba21d281-47ab-411d-948b-406d45c00eb0", "Account", null, false, false, null, "test", null, null, "test", null, null, false, "94e1c5cb-4ae0-474e-a21a-ed07050d81f9", false, null, null });
 
             migrationBuilder.InsertData(
                 table: "Patients",
-                columns: new[] { "Id", "LongestStreak", "Streak", "UserId" },
-                values: new object[] { 1, 0, 0, "test" });
+                columns: new[] { "Id", "AccountId", "LastLogin", "LongestStreak", "Streak" },
+                values: new object[] { 1, "1bf796ea-cd7f-40c7-9bc6-1c9beeb53d27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -348,9 +309,9 @@ namespace MoodPlus.Migrations
                 column: "EntryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patients_UserId",
+                name: "IX_Patients_AccountId",
                 table: "Patients",
-                column: "UserId",
+                column: "AccountId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -386,9 +347,6 @@ namespace MoodPlus.Migrations
 
             migrationBuilder.DropTable(
                 name: "PosiNote");
-
-            migrationBuilder.DropTable(
-                name: "TempEntry");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
