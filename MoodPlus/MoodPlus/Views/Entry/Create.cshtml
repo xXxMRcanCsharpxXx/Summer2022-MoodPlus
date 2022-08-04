@@ -1,0 +1,173 @@
+﻿@model MoodPlus.Data.TempEntry
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TempEntry</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientId" class="control-label"></label>
+                <input asp-for="PatientId" class="form-control" />
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <input asp-for="Body" class="form-control" />
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Anxiety" /> @Html.DisplayNameFor(model => model.Anxiety)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnxietyRating" class="control-label"></label>
+                <input asp-for="AnxietyRating" class="form-control" />
+                <span asp-validation-for="AnxietyRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Cheerful" /> @Html.DisplayNameFor(model => model.Cheerful)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheerfulRating" class="control-label"></label>
+                <input asp-for="CheerfulRating" class="form-control" />
+                <span asp-validation-for="CheerfulRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Happiness" /> @Html.DisplayNameFor(model => model.Happiness)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="HappinessRating" class="control-label"></label>
+                <input asp-for="HappinessRating" class="form-control" />
+                <span asp-validation-for="HappinessRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Loneliness" /> @Html.DisplayNameFor(model => model.Loneliness)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="LonelinessRating" class="control-label"></label>
+                <input asp-for="LonelinessRating" class="form-control" />
+                <span asp-validation-for="LonelinessRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Restless" /> @Html.DisplayNameFor(model => model.Restless)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="RestlessRating" class="control-label"></label>
+                <input asp-for="RestlessRating" class="form-control" />
+                <span asp-validation-for="RestlessRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Grumpy" /> @Html.DisplayNameFor(model => model.Grumpy)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="GrumpyRating" class="control-label"></label>
+                <input asp-for="GrumpyRating" class="form-control" />
+                <span asp-validation-for="GrumpyRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sadness" /> @Html.DisplayNameFor(model => model.Sadness)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SadnessRating" class="control-label"></label>
+                <input asp-for="SadnessRating" class="form-control" />
+                <span asp-validation-for="SadnessRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Overwhelmed" /> @Html.DisplayNameFor(model => model.Overwhelmed)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverwhelmedRating" class="control-label"></label>
+                <input asp-for="OverwhelmedRating" class="form-control" />
+                <span asp-validation-for="OverwhelmedRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Aggravated" /> @Html.DisplayNameFor(model => model.Aggravated)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AggravatedRating" class="control-label"></label>
+                <input asp-for="AggravatedRating" class="form-control" />
+                <span asp-validation-for="AggravatedRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Anger" /> @Html.DisplayNameFor(model => model.Anger)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AngerRating" class="control-label"></label>
+                <input asp-for="AngerRating" class="form-control" />
+                <span asp-validation-for="AngerRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Calm" /> @Html.DisplayNameFor(model => model.Calm)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalmRating" class="control-label"></label>
+                <input asp-for="CalmRating" class="form-control" />
+                <span asp-validation-for="CalmRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Loved" /> @Html.DisplayNameFor(model => model.Loved)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="LovedRating" class="control-label"></label>
+                <input asp-for="LovedRating" class="form-control" />
+                <span asp-validation-for="LovedRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Shameful" /> @Html.DisplayNameFor(model => model.Shameful)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShamefulRating" class="control-label"></label>
+                <input asp-for="ShamefulRating" class="form-control" />
+                <span asp-validation-for="ShamefulRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

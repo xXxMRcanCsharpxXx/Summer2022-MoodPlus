@@ -16,18 +16,18 @@ namespace MoodPlus.Controllers
         {
             return View(db.MoodRatings.ToList());
         }
-        public IActionResult Create()
-        {
-            ViewBag.MoodRatings = new SelectList(db.MoodRatings.ToList(), "Id", "Feeling");
-            return View(new MoodRating());
-        }
-        [HttpPost]
-        public IActionResult Create(MoodRating model)
-        {
-            db.MoodRatings.Add(model);
-            db.SaveChanges();
-            return RedirectToAction("Detail", model);
-        }
+        //public IActionResult Create()
+        //{
+        //    ViewBag.MoodRatings = new SelectList(db.MoodRatings.ToList(), "Id", "Feeling");
+        //    return View(new MoodRating());
+        //}
+        //[HttpPost]
+        //public IActionResult Create(MoodRating model)
+        //{
+        //    db.MoodRatings.Add(model);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Detail", model);
+        //}
         public IActionResult Details(int id)
         {
             return View(db.MoodRatings.Find(id));

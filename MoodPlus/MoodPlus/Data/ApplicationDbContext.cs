@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MoodPlus.Models;
+using MoodPlus.Data;
 
 namespace MoodPlus.Data
 {
@@ -25,7 +26,16 @@ namespace MoodPlus.Data
             //    new Entry() { Id = 1, PatientId = 1, Date = DateTime.Now },
             //    new Entry() { Id = 2, PatientId = 2, Date = DateTime.Now }
             //    );
+            modelBuilder.Entity<User>().HasData(
+                new User() { Id="test", UserName="test", Password="text", Email="text"}
+                );
+            modelBuilder.Entity<Patient>().HasData(
+                new Patient() { Id=1, UserId="test", Streak=0, LongestStreak=0}
+           
+                );
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<MoodPlus.Data.TempEntry>? TempEntry { get; set; }
     }
 }

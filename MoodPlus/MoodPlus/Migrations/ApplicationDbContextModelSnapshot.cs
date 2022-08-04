@@ -230,6 +230,107 @@ namespace MoodPlus.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("MoodPlus.Data.TempEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Aggravated")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("AggravatedRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Anger")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("AngerRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Anxiety")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("AnxietyRating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Calm")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CalmRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Cheerful")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CheerfulRating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Grumpy")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("GrumpyRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Happiness")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("HappinessRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Loneliness")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LonelinessRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Loved")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LovedRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Overwhelmed")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OverwhelmedRating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Restless")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RestlessRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Sadness")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SadnessRating")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Shameful")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ShamefulRating")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TempEntry");
+                });
+
             modelBuilder.Entity("MoodPlus.Models.Entry", b =>
                 {
                     b.Property<int>("Id")
@@ -302,6 +403,15 @@ namespace MoodPlus.Migrations
                         .IsUnique();
 
                     b.ToTable("Patients");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LongestStreak = 0,
+                            Streak = 0,
+                            UserId = "test"
+                        });
                 });
 
             modelBuilder.Entity("MoodPlus.Models.PosiNote", b =>
@@ -343,6 +453,20 @@ namespace MoodPlus.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "f5f7e5dd-7ed9-45fb-a974-79acc7f316fb",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "24b6dbb7-af20-41c4-8363-7cfc58d97597",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ac422bbe-3913-4c73-bd8c-1be3363a4977",
+                            TwoFactorEnabled = false,
+                            Password = "text"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

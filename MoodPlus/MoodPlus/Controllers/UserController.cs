@@ -35,7 +35,7 @@ namespace MoodPlus.Controllers
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
-            return RedirectToAction("Home"); // We could have this redirect somewhere else instead.
+            return RedirectToAction("Index", "Home"); // We could have this redirect somewhere else instead.
         }
 
         [Authorize]
@@ -52,7 +52,7 @@ namespace MoodPlus.Controllers
             User user = new User() { UserName = model.UserName, UserGoal = model.UserGoal, Password = model.Password, Email = model.Email };
             db.Users.Add(user);
             db.SaveChanges();
-            return RedirectToAction("Home");
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Edit(int id)
@@ -71,7 +71,7 @@ namespace MoodPlus.Controllers
         {
             db.Users.Update(model);
             db.SaveChanges();
-            return RedirectToAction("Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MoodPlus.Migrations
 {
-    public partial class inboxfix : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +49,47 @@ namespace MoodPlus.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TempEntry",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PatientId = table.Column<int>(type: "int", nullable: false),
+                    Body = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Anxiety = table.Column<bool>(type: "bit", nullable: false),
+                    AnxietyRating = table.Column<int>(type: "int", nullable: false),
+                    Cheerful = table.Column<bool>(type: "bit", nullable: false),
+                    CheerfulRating = table.Column<int>(type: "int", nullable: false),
+                    Happiness = table.Column<bool>(type: "bit", nullable: false),
+                    HappinessRating = table.Column<int>(type: "int", nullable: false),
+                    Loneliness = table.Column<bool>(type: "bit", nullable: false),
+                    LonelinessRating = table.Column<int>(type: "int", nullable: false),
+                    Restless = table.Column<bool>(type: "bit", nullable: false),
+                    RestlessRating = table.Column<int>(type: "int", nullable: false),
+                    Grumpy = table.Column<bool>(type: "bit", nullable: false),
+                    GrumpyRating = table.Column<int>(type: "int", nullable: false),
+                    Sadness = table.Column<bool>(type: "bit", nullable: false),
+                    SadnessRating = table.Column<int>(type: "int", nullable: false),
+                    Overwhelmed = table.Column<bool>(type: "bit", nullable: false),
+                    OverwhelmedRating = table.Column<int>(type: "int", nullable: false),
+                    Aggravated = table.Column<bool>(type: "bit", nullable: false),
+                    AggravatedRating = table.Column<int>(type: "int", nullable: false),
+                    Anger = table.Column<bool>(type: "bit", nullable: false),
+                    AngerRating = table.Column<int>(type: "int", nullable: false),
+                    Calm = table.Column<bool>(type: "bit", nullable: false),
+                    CalmRating = table.Column<int>(type: "int", nullable: false),
+                    Loved = table.Column<bool>(type: "bit", nullable: false),
+                    LovedRating = table.Column<int>(type: "int", nullable: false),
+                    Shameful = table.Column<bool>(type: "bit", nullable: false),
+                    ShamefulRating = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TempEntry", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -247,6 +288,16 @@ namespace MoodPlus.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserGoal", "UserName" },
+                values: new object[] { "f5f7e5dd-7ed9-45fb-a974-79acc7f316fb", 0, "24b6dbb7-af20-41c4-8363-7cfc58d97597", "User", null, false, false, null, null, null, "text", null, null, false, "ac422bbe-3913-4c73-bd8c-1be3363a4977", false, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Patients",
+                columns: new[] { "Id", "LongestStreak", "Streak", "UserId" },
+                values: new object[] { 1, 0, 0, "test" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -299,7 +350,8 @@ namespace MoodPlus.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Patients_UserId",
                 table: "Patients",
-                column: "UserId");
+                column: "UserId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_PosiNote_ReceiverId",
@@ -334,6 +386,9 @@ namespace MoodPlus.Migrations
 
             migrationBuilder.DropTable(
                 name: "PosiNote");
+
+            migrationBuilder.DropTable(
+                name: "TempEntry");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
