@@ -32,7 +32,7 @@ namespace MoodPlus.Controllers
         {
             return View(db.MoodRatings.Find(id));
         }
-        public IActionResult Update(int id)
+        public IActionResult Edit(int id)
         {
       
             MoodRating moodRating = db.MoodRatings.Find(id); 
@@ -41,7 +41,7 @@ namespace MoodPlus.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(MoodRating model)
+        public IActionResult Edit(MoodRating model)
         {
             db.MoodRatings.Update(model);
             db.SaveChanges();
