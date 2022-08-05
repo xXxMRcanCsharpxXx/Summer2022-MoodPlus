@@ -6,12 +6,12 @@ using MoodPlus.Models;
 
 namespace MoodPlus.Controllers
 {
-    public class UserController : Controller
+    public class AccountController : Controller
     {
         public ApplicationDbContext db { get; set; }
         public SignInManager<Account> signInManager { get; set; }
 
-        public UserController(ApplicationDbContext db, SignInManager<Account> signInManager)
+        public AccountController(ApplicationDbContext db, SignInManager<Account> signInManager)
         {
             this.db = db;
             this.signInManager = signInManager;
@@ -38,13 +38,11 @@ namespace MoodPlus.Controllers
             return RedirectToAction("Index", "Home"); // We could have this redirect somewhere else instead.
         }
 
-        [Authorize]
         public IActionResult Create()
         {
             return View(new Account());   
         }
 
-        [Authorize]
         [HttpPost]
 
         public IActionResult Create(Account model)
