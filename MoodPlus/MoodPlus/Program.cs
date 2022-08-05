@@ -4,6 +4,7 @@ using MoodPlus.Data;
 using MoodPlus.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -14,6 +15,9 @@ builder.Services.AddIdentity<Account, IdentityRole>(options => options.SignIn.Re
     .AddTokenProvider<DataProtectorTokenProvider<Account>>(TokenOptions.DefaultProvider);
 
 builder.Services.AddDbContext<ApplicationDbContext>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
