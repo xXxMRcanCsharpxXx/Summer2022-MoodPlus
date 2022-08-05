@@ -12,6 +12,7 @@ namespace MoodPlus.Data
         public DbSet<MoodRating> MoodRatings { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<PosiNote> PosiNotes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
