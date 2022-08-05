@@ -16,14 +16,14 @@ namespace MoodPlus.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly IUserStore<IdentityUser> _userStore;
+        private readonly UserManager<Models.Account> _userManager;
+        private readonly SignInManager<Models.Account> _signInManager;
+        private readonly IUserStore<Models.Account> _userStore;
 
         public ExternalLoginsModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
-            IUserStore<IdentityUser> userStore)
+            UserManager<Models.Account> userManager,
+            SignInManager<Models.Account> signInManager,
+            IUserStore<Models.Account> userStore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -69,7 +69,7 @@ namespace MoodPlus.Areas.Identity.Pages.Account.Manage
                 .ToList();
 
             string passwordHash = null;
-            if (_userStore is IUserPasswordStore<IdentityUser> userPasswordStore)
+            if (_userStore is IUserPasswordStore<Models.Account> userPasswordStore)
             {
                 passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
             }

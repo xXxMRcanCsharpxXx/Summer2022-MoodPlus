@@ -9,9 +9,11 @@ namespace MoodPlus.Controllers
     public class EntryController : Controller
     {
         public ApplicationDbContext db { get; set; }
-        public EntryController(ApplicationDbContext db)
+        public UserManager<Account> userManager { get; set; }
+        public EntryController(ApplicationDbContext db, Microsoft.AspNetCore.Identity.UserManager<Account> userManager)
         {
             this.db = db;
+            this.userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -41,6 +43,10 @@ namespace MoodPlus.Controllers
 
         public IActionResult Create()
         {
+            string userId = userManager.GetUserId(HttpContext.User);
+            Account account = db.Accounts.Find(userId);
+            int patientId = account.Patient.Id;
+            ViewBag.PatientId = patientId;
             return View(new TempEntry());
         }
         [HttpPost]

@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using MoodPlus.Data;
 
 namespace MoodPlus.Areas.Identity.Pages.Account
 {
@@ -29,13 +30,15 @@ namespace MoodPlus.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<Models.Account> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private ApplicationDbContext _db;
 
         public RegisterModel(
             UserManager<Models.Account> userManager,
             IUserStore<Models.Account> userStore,
             SignInManager<Models.Account> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext db)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -43,6 +46,7 @@ namespace MoodPlus.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = db;
         }
 
         /// <summary>
@@ -134,8 +138,9 @@ namespace MoodPlus.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    //Models.Patient patient = new Models.Patient() { Id = 0, AccountId = userId };
-                    
+                    Models.Patient patient = new Models.Patient() { Id = 0, AccountId = userId, Streak = 1, LongestStreak = 1, LastLogin=DateTime.Now};
+                    _db.Patients.Add(patient);
+                    _db.SaveChanges();
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

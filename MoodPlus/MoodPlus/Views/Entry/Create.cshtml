@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PatientId" class="control-label"></label>
-                <input asp-for="PatientId" class="form-control" />
+               <input asp-for="PatientId" value=@ViewBag.PatientId/>
                 <span asp-validation-for="PatientId" class="text-danger"></span>
             </div>
             <div class="form-group">

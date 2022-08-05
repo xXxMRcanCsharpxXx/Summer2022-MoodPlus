@@ -15,9 +15,6 @@ builder.Services.AddIdentity<Account, IdentityRole>(options => options.SignIn.Re
     .AddTokenProvider<DataProtectorTokenProvider<Account>>(TokenOptions.DefaultProvider);
 
 builder.Services.AddDbContext<ApplicationDbContext>();
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 

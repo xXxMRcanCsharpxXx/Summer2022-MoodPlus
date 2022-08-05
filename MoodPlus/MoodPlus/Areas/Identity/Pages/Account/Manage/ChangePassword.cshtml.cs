@@ -14,13 +14,13 @@ namespace MoodPlus.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<Models.Account> _userManager;
+        private readonly SignInManager<Models.Account> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<Models.Account> userManager,
+            SignInManager<Models.Account> signInManager,
             ILogger<ChangePasswordModel> logger)
         {
             _userManager = userManager;
