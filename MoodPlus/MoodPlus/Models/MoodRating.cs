@@ -12,17 +12,12 @@
     public enum Feeling
     {
         Anxiety,
-        Cheerful,
-        Happiness,
-        Loneliness,
-        Restless,
-        Grumpy,
-        Sadness,
-        Overwhelmed,
-        Aggravated,
         Anger,
         Calm,
         Loved,
-        Shameful
+       Stressed,
+        Happiness,
+        Sadness,
+        Overwhelmed
     }
 }
