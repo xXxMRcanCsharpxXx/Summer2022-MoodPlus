@@ -19,36 +19,8 @@ namespace MoodPlus.Controllers
         [Authorize]
         public IActionResult Index(int id)
         {
+
             return View(db.Patients.Find(id));
-        }
-
-        public IActionResult Create()
-        {
-            return View( new Patient());
-        }
-
-        [HttpPost]
-        public IActionResult Create(Patient model)
-        {
-            db.Patients.Add(model);
-            db.SaveChanges();
-            return View(model);
-        }
-
-        [Authorize]
-        public IActionResult Edit(int id)
-        {
-            Patient patient = db.Patients.Find(id);
-            return View(patient);
-        }
-
-        [Authorize]
-        [HttpPost]
-        public IActionResult Edit(Patient model)
-        {
-            db.Patients.Update(model);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
     }
 }

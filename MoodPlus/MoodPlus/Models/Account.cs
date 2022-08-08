@@ -4,7 +4,16 @@ namespace MoodPlus.Models
 {
     public class Account : IdentityUser
     {
-        public string Id { get; set; }
+        public string Id { 
+            get 
+            {
+                return base.Id;
+            }
+            set
+            {
+                base.Id = value;
+            }
+        }
         public string Name { get; set; }
         public string? UserGoal { get; set; }
         public string Password { get; set; }

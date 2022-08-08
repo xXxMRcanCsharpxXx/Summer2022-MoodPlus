@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using MoodPlus.Data;
+using System.Security.Claims;
 
 namespace MoodPlus.Areas.Identity.Pages.Account
 {
@@ -21,9 +23,11 @@ namespace MoodPlus.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<Models.Account> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        public ApplicationDbContext db;
 
-        public LoginModel(SignInManager<Models.Account> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<Models.Account> signInManager, ILogger<LoginModel> logger, ApplicationDbContext db)
         {
+            this.db = db;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -114,7 +118,33 @@ namespace MoodPlus.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    // grab user
+                    var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
+                    var userId = user.Id;
+                    Models.Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
+                    DateTime currDate = DateTime.Now;
+                    DateTime timeLimit = patient.LastLogin.AddDays(1);
+                    // let's come back to this if we have time
+                    if (currDate <= timeLimit)
+                    {
+                        patient.Streak++;
+                        patient.LastLogin = currDate;
+                        if(patient.LongestStreak < patient.Streak)
+                        {
+                            patient.LongestStreak = patient.Streak;
+                        }
+                        db.Patients.Update(patient);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        patient.Streak = 1;
+                        patient.LastLogin = currDate;
+                        db.Patients.Update(patient);
+                        db.SaveChanges();
+                    }
+                    
+                    _logger.LogInformation("User logged in."); 
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
