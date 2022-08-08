@@ -17,7 +17,7 @@ namespace MoodPlus.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(db.Entries);
         }
         public IActionResult Delete()
         {
