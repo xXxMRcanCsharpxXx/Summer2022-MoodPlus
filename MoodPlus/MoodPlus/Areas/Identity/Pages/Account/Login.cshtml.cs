@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using MoodPlus.Data;
+using System.Security.Claims;
 
 namespace MoodPlus.Areas.Identity.Pages.Account
 {
@@ -23,14 +24,12 @@ namespace MoodPlus.Areas.Identity.Pages.Account
         private readonly SignInManager<Models.Account> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         public ApplicationDbContext db;
-        public UserManager<Models.Account> userManager;
 
-        public LoginModel(SignInManager<Models.Account> signInManager, ILogger<LoginModel> logger, ApplicationDbContext db, UserManager<Models.Account> userManager)
+        public LoginModel(SignInManager<Models.Account> signInManager, ILogger<LoginModel> logger, ApplicationDbContext db)
         {
             this.db = db;
             _signInManager = signInManager;
             _logger = logger;
-            this.userManager = userManager;
         }
 
         /// <summary>
@@ -120,10 +119,12 @@ namespace MoodPlus.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     // grab user
-                    var userId = userManager.GetUserId(User);
+                    var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
+                    var userId = user.Id;
                     Models.Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
                     DateTime currDate = DateTime.Now;
                     DateTime timeLimit = patient.LastLogin.AddDays(1);
+                    // let's come back to this if we have time
                     if (currDate <= timeLimit)
                     {
                         patient.Streak++;
