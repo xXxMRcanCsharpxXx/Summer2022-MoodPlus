@@ -6,12 +6,12 @@ using MoodPlus.Models;
 
 namespace MoodPlus.Controllers
 {
-    public class PosiNoteController : Controller
+    public class NoteController : Controller
     {
         public ApplicationDbContext db { get; set; }
         public SignInManager<Account> signInManager { get; set; }
         public UserManager<Account> userManager { get; set; }
-        public PosiNoteController(ApplicationDbContext db, SignInManager<Account> signInManager, UserManager<Account> userManager)
+        public NoteController(ApplicationDbContext db, SignInManager<Account> signInManager, UserManager<Account> userManager)
         {
             this.db = db;
             this.signInManager = signInManager;
@@ -29,7 +29,7 @@ namespace MoodPlus.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            db.PosiNotes.Remove(db.PosiNotes.Find(id));
+            db.Notes.Remove(db.Notes.Find(id));
             db.SaveChanges();
             return RedirectToAction("Index");
 
@@ -48,7 +48,7 @@ namespace MoodPlus.Controllers
                 if(response.IsSuccessStatusCode)
                 {
                     var data = await response.Content.ReadAsStringAsync();
-                    var json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TempPosiNote>>(data);
+                    var json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TempNote>>(data);
                     quote = json[0].q;
                 }
             }
@@ -63,8 +63,8 @@ namespace MoodPlus.Controllers
             int rand = r.Next(0, patients.Count);
             int recieverId = patients[rand].Id;
             
-            PosiNote posiNote = new PosiNote() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId };
-            db.PosiNotes.Add(posiNote);
+            Note posiNote = new Note() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId };
+            db.Notes.Add(posiNote);
             db.SaveChanges();
             return View();
         }
