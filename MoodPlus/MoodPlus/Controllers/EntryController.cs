@@ -35,11 +35,20 @@ namespace MoodPlus.Controllers
             return View(db.Entries.Find(id));
         }
 
-        //public IActionResult Update()
-        //{
+        public IActionResult Update(int id)
+        {
+            Entry entry = db.Entries.Find(id);
+            return View(entry);
+            
+        }
+        [HttpPost]
+        public IActionResult Update(Entry model)
+        {
+            db.Entries.Update(model);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
-        //    return
-        //}
+        }
 
         public IActionResult Create()
         {

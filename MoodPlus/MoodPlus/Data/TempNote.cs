@@ -1,6 +1,6 @@
 ﻿namespace MoodPlus.Data
 {
-    public class TempPosiNote
+    public class TempNote
     {
         public string q;
         public string a;
