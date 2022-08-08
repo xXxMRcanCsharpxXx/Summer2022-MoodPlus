@@ -76,7 +76,7 @@ namespace MoodPlus.Controllers
                     db.SaveChanges();
                 }
             }
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
