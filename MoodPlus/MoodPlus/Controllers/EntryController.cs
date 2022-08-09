@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MoodPlus.Data;
@@ -15,32 +16,43 @@ namespace MoodPlus.Controllers
             this.db = db;
             this.userManager = userManager;
         }
+
+        [Authorize]
         public IActionResult Index()
         {
             return View(db.Entries);
         }
-        public IActionResult Delete()
-        {
-            return RedirectToAction("Index");
-        }
-        [HttpPost]
+
+        [Authorize]
         public IActionResult Delete(int id)
         {
-            db.Remove(id);
+            return View(db.Entries.Find(id));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Delete(Entry model)
+        {
+            db.Entries.Remove(model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [Authorize]
         public IActionResult Details(int id)
         {
             return View(db.Entries.Find(id));
         }
 
+        [Authorize]
         public IActionResult Update(int id)
         {
             Entry entry = db.Entries.Find(id);
             return View(entry);
             
         }
+
+        [Authorize]
         [HttpPost]
         public IActionResult Update(Entry model)
         {
@@ -50,6 +62,7 @@ namespace MoodPlus.Controllers
 
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             string userId = userManager.GetUserId(HttpContext.User);
@@ -58,6 +71,8 @@ namespace MoodPlus.Controllers
             ViewBag.PatientId = patientId;
             return View(new TempEntry());
         }
+
+        [Authorize]
         [HttpPost]
         public IActionResult Create(TempEntry model)
         {
