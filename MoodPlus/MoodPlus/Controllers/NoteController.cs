@@ -37,7 +37,7 @@ namespace MoodPlus.Controllers
 
         public async Task<IActionResult> Create()
         {
-            string apiURL = "https://zenquotes.io/api/random/";
+            string apiURL = "https://zenquotes.io/api/random/"; //https://zenquotes.io/api/keywords/ //this link will generate a JSON array of available keywords via API call
             string quote = "";
             using (var client = new HttpClient())
             {

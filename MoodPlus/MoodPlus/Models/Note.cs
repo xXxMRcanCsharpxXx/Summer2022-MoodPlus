@@ -9,8 +9,10 @@ namespace MoodPlus.Models
         public string Quote { get; set; }
         public int SenderId { get; set; }
         public virtual Patient Sender { get; set; }
-        public int ReceiverId {get; set; }
+        public int ReceiverId {get; set; } 
+        // Allows us to track sending/recieving quotes between users.
         public virtual Patient Receiver { get; set; }
-       // Allows us to track sending/recieving quotes between users.
+        
+       
     }
 }

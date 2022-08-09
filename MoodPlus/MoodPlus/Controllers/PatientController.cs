@@ -22,5 +22,8 @@ namespace MoodPlus.Controllers
             Patient patient = db.Accounts.Where(u => u.NormalizedEmail == id).FirstOrDefault().Patient;
             return View(patient);
         }
+
+        
     }
+    
 }
