@@ -15,7 +15,7 @@
         Anger,
         Calm,
         Loved,
-       Stressed,
+        Stressed,
         Happiness,
         Sadness,
         Overwhelmed

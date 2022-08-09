@@ -12,8 +12,8 @@ using MoodPlus.Data;
 namespace MoodPlus.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220808150256_entrytest")]
-    partial class entrytest
+    [Migration("20220809142545_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -362,13 +362,13 @@ namespace MoodPlus.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "09a89d9b-c03f-4652-9357-c26d32451939",
+                            Id = "test",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eb1c8d06-d830-4928-a163-29c939277673",
+                            ConcurrencyStamp = "a75d1c70-8473-424e-897d-cf8ce9e8420a",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "adc4d454-61d6-4b1f-8ea9-bdb3a21752fd",
+                            SecurityStamp = "bde84e3f-859b-4539-a5bd-19e1130946ed",
                             TwoFactorEnabled = false,
                             Name = "test",
                             Password = "test"

@@ -202,7 +202,7 @@ namespace MoodPlus.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PosiNote",
+                name: "Notes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -213,15 +213,15 @@ namespace MoodPlus.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PosiNote", x => x.Id);
+                    table.PrimaryKey("PK_Notes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PosiNote_Patients_ReceiverId",
+                        name: "FK_Notes_Patients_ReceiverId",
                         column: x => x.ReceiverId,
                         principalTable: "Patients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_PosiNote_Patients_SenderId",
+                        name: "FK_Notes_Patients_SenderId",
                         column: x => x.SenderId,
                         principalTable: "Patients",
                         principalColumn: "Id",
@@ -252,12 +252,12 @@ namespace MoodPlus.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserGoal", "UserName" },
-                values: new object[] { "1bf796ea-cd7f-40c7-9bc6-1c9beeb53d27", 0, "ba21d281-47ab-411d-948b-406d45c00eb0", "Account", null, false, false, null, "test", null, null, "test", null, null, false, "94e1c5cb-4ae0-474e-a21a-ed07050d81f9", false, null, null });
+                values: new object[] { "test", 0, "a75d1c70-8473-424e-897d-cf8ce9e8420a", "Account", null, false, false, null, "test", null, null, "test", null, null, false, "bde84e3f-859b-4539-a5bd-19e1130946ed", false, null, null });
 
             migrationBuilder.InsertData(
                 table: "Patients",
                 columns: new[] { "Id", "AccountId", "LastLogin", "LongestStreak", "Streak" },
-                values: new object[] { 1, "1bf796ea-cd7f-40c7-9bc6-1c9beeb53d27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 });
+                values: new object[] { 1, "test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -309,20 +309,20 @@ namespace MoodPlus.Migrations
                 column: "EntryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Notes_ReceiverId",
+                table: "Notes",
+                column: "ReceiverId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notes_SenderId",
+                table: "Notes",
+                column: "SenderId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Patients_AccountId",
                 table: "Patients",
                 column: "AccountId",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PosiNote_ReceiverId",
-                table: "PosiNote",
-                column: "ReceiverId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PosiNote_SenderId",
-                table: "PosiNote",
-                column: "SenderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -346,7 +346,7 @@ namespace MoodPlus.Migrations
                 name: "MoodRatings");
 
             migrationBuilder.DropTable(
-                name: "PosiNote");
+                name: "Notes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

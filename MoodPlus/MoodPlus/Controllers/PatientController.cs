@@ -17,10 +17,10 @@ namespace MoodPlus.Controllers
         }
 
         [Authorize]
-        public IActionResult Index(int id)
+        public IActionResult Details(string id)
         {
-
-            return View(db.Patients.Find(id));
+            Patient patient = db.Accounts.Where(u => u.NormalizedEmail == id).FirstOrDefault().Patient;
+            return View(patient);
         }
     }
 }
