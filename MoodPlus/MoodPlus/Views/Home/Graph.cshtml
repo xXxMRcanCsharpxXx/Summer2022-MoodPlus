@@ -1,0 +1,128 @@
+﻿
+@section Graph {
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+}
+
+<div id="chartContainer"></div>
+
+@section Scripts {
+    <script type="text/javascript"> 
+        window.onload = function () {
+            let chart = new CanvasJS.Chart("chartContainer", 
+            {
+                animationEnabled: true,
+                theme: "light2",
+                title: { text: "Your Mood Chart" },
+                axisX: { valueFormatString: "DD MMM" },
+                axisY: { 
+                    title: "Mood Rating",
+                    interval: 1,
+                    minimum: 1,
+                    maximum: 5
+
+                },
+                toolTip: { shared: true },
+                legend: {
+                    cursor: "pointer",
+		            verticalAlign: "top",
+		            horizontalAlign: "center",
+		            dockInsidePlotArea: true
+                },
+                data: [
+                    {
+                        type:"line",
+                        color: "red",
+		                axisYType: "primary",
+		                name: "Happiness",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Happiness)
+                    },
+                    {
+                        type:"line",
+                        color: "#B56727",
+		                axisYType: "primary",
+		                name: "Anxiety",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Anxiety)
+                    },
+                    {
+                        type:"line",
+                        color: "blue",
+		                axisYType: "primary",
+		                name: "Anger",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Anger)
+                    },
+                    {
+                        type:"line",
+                        color: "pink",
+		                axisYType: "primary",
+		                name: "Calm",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Calm)
+                    },
+                    {
+                        type:"line",
+                        color: "purple",
+		                axisYType: "primary",
+		                name: "Loved",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Loved)
+                    },
+                    {
+                        type:"line",
+                        color: "orange",
+		                axisYType: "primary",
+		                name: "Stressed",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Stressed)
+                    },
+                    {
+                        type:"line",
+                        color: "#893101",
+		                axisYType: "primary",
+		                name: "Sadness",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Sadness)
+                    },
+                    {
+                        type:"line",
+                        color: "#466D1D",
+		                axisYType: "primary",
+		                name: "Overwhelmed",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Overwhelmed)
+                    },
+                ]
+
+            }
+            
+            ); 
+            chart.render();
+        }
+    </script>
+}
