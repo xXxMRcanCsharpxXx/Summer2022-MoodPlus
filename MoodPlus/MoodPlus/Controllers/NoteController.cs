@@ -35,11 +35,11 @@ namespace MoodPlus.Controllers
 
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create()
         {
-            string apiURL = $"https://zenquotes.io/api/random/";
+            string apiURL = "https://zenquotes.io/api/random/";
             string quote = "";
-            string author = "";
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(apiURL);
@@ -50,8 +50,8 @@ namespace MoodPlus.Controllers
                 {
                     var data = await response.Content.ReadAsStringAsync();
                     var json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TempNote>>(data);
-                    quote = json[0].q;
-                    author = json[0].a;
+                    quote = json[0].q + " - " + json[0].a;
+                    
                 }
             }
 
@@ -60,15 +60,19 @@ namespace MoodPlus.Controllers
             Account account = db.Accounts.Find(userId);
             int senderId = account.Patient.Id;
 
-            List<Patient> patients = db.Patients.ToList();
             Random r = new Random();
-            int rand = r.Next(0, patients.Count);
-            int recieverId = patients[rand].Id;
+            int rand = r.Next(0, db.Patients.Count());
+            int recieverId = db.Patients.Skip(rand).FirstOrDefault().Id;
             
             Note posiNote = new Note() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId };
             db.Notes.Add(posiNote);
             db.SaveChanges();
-            return View(db.Notes);
+            return RedirectToAction("Inbox");
+        }
+
+        public IActionResult Inbox()
+        {
+            return View();
         }
 
 
