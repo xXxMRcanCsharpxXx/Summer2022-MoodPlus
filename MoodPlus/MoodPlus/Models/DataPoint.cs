@@ -12,13 +12,13 @@ namespace MoodPlus.Models
         public int Rating { get; set; }
 
         [DataMember(Name = "x")]
-        public DateTime Date { get; set; }
+        public double Date { get; set; }
 
         public DataPoint (Feeling feeling, int rating, DateTime date)
         {
             Feeling = (int) feeling;    
-            Rating = rating;  
-            Date = date;
+            Rating = rating;
+            Date = date.Subtract(new DateTime(1970,1,1,0,0,0)).TotalMilliseconds;
         }
     }
 

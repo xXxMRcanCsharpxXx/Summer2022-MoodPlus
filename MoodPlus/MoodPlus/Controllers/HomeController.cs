@@ -44,8 +44,14 @@ namespace MoodPlus.Controllers
             //ViewBag.Theme = "light2";
             List<Entry> Entries = db.Entries.Skip(Math.Max(0, db.Entries.Count() - 90)).ToList();
             List<DataPoint> Happiness = new List<DataPoint>();
-            // ViewBag.Anger = new List<DataPoint>();
-            // do this for other emotions
+            List<DataPoint> Anxiety = new List<DataPoint>();
+            List<DataPoint> Anger = new List<DataPoint>();
+            List<DataPoint> Calm = new List<DataPoint>();
+            List<DataPoint> Loved = new List<DataPoint>();
+            List<DataPoint> Stressed = new List<DataPoint>();
+            List<DataPoint> Sadness = new List<DataPoint>();
+            List<DataPoint> Overwhelmed = new List<DataPoint>();
+
 
             for (int i = 0; i < Entries.Count; i++)
             {
@@ -57,14 +63,40 @@ namespace MoodPlus.Controllers
                         case Feeling.Happiness:
                             Happiness.Add(toAdd);
                             break;
-                        //case Feeling.Anger:
-                        //    ViewBag.Anger.Add(toAdd);
-                        //    break;
+                        case Feeling.Anger:
+                            Anger.Add(toAdd);
+                            break;
+                        case Feeling.Anxiety:
+                            Anxiety.Add(toAdd);
+                            break;
+                        case Feeling.Calm:
+                            Calm.Add(toAdd);
+                            break;
+                        case Feeling.Loved:
+                            Loved.Add(toAdd);
+                            break;
+                        case Feeling.Stressed:
+                            Stressed.Add(toAdd);
+                            break;
+                        case Feeling.Sadness:
+                            Sadness.Add(toAdd);
+                            break;
+                        case Feeling.Overwhelmed:
+                            Overwhelmed.Add(toAdd);
+                            break;
+                        
                     }
                 }
             }
 
             ViewBag.Happiness = JsonConvert.SerializeObject(Happiness);
+            ViewBag.Anxiety = JsonConvert.SerializeObject(Anxiety);
+            ViewBag.Anger = JsonConvert.SerializeObject(Anger);
+            ViewBag.Calm = JsonConvert.SerializeObject(Calm);
+            ViewBag.Loved = JsonConvert.SerializeObject(Loved);
+            ViewBag.Stressed = JsonConvert.SerializeObject(Stressed);
+            ViewBag.Sadness = JsonConvert.SerializeObject(Sadness);
+            ViewBag.Overwhelmed = JsonConvert.SerializeObject(Overwhelmed);
 
             return View();
         }

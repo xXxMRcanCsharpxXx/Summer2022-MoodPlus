@@ -31,13 +31,92 @@
                 data: [
                     {
                         type:"line",
+                        color: "red",
 		                axisYType: "secondary",
 		                name: "Happiness",
 		                showInLegend: true,
 		                markerSize: 1,
+                        xValueType: "dateTime",
 		                yValueFormatString: "#",
                         dataPoints: @Html.Raw(ViewBag.Happiness)
-                    }
+                    },
+                    {
+                        type:"line",
+                        color: "#B56727",
+		                axisYType: "secondary",
+		                name: "Anxiety",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Anxiety)
+                    },
+                    {
+                        type:"line",
+                        color: "blue",
+		                axisYType: "secondary",
+		                name: "Anger",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Anger)
+                    },
+                    {
+                        type:"line",
+                        color: "pink",
+		                axisYType: "secondary",
+		                name: "Calm",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Calm)
+                    },
+                    {
+                        type:"line",
+                        color: "purple",
+		                axisYType: "secondary",
+		                name: "Loved",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Loved)
+                    },
+                    {
+                        type:"line",
+                        color: "orange",
+		                axisYType: "secondary",
+		                name: "Stressed",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Stressed)
+                    },
+                    {
+                        type:"line",
+                        color: "#893101",
+		                axisYType: "secondary",
+		                name: "Sadness",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Sadness)
+                    },
+                    {
+                        type:"line",
+                        color: "#466D1D",
+		                axisYType: "secondary",
+		                name: "Overwhelmed",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Overwhelmed)
+                    },
                 ]
 
             }
