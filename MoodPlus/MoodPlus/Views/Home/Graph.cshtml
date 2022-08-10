@@ -1,0 +1,49 @@
+﻿
+@section Graph {
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+}
+
+<div id="chartContainer"></div>
+
+@section Scripts {
+    <script type="text/javascript"> 
+        window.onload = function () {
+            let chart = new CanvasJS.Chart("chartContainer", 
+            {
+                animationEnabled: true,
+                theme: "light2",
+                title: { text: "Your Mood Chart" },
+                axisX: { valueFormatString: "DD MMM" },
+                axisY: { 
+                    title: "Mood Rating",
+                    interval: 1,
+                    minimum: 1,
+                    maximum: 4
+
+                },
+                toolTip: { shared: true },
+                legend: {
+                    cursor: "pointer",
+		            verticalAlign: "top",
+		            horizontalAlign: "center",
+		            dockInsidePlotArea: true
+                },
+                data: [
+                    {
+                        type:"line",
+		                axisYType: "secondary",
+		                name: "Happiness",
+		                showInLegend: true,
+		                markerSize: 1,
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Happiness)
+                    }
+                ]
+
+            }
+            
+            ); 
+            chart.render();
+        }
+    </script>
+}
