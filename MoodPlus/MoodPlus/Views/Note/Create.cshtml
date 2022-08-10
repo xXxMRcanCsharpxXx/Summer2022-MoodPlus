@@ -1,12 +1,13 @@
-﻿@model IEnumerable<MoodPlus.Models.Note>
+﻿@using MoodPlus.Data
 
 @{
     ViewData["Title"] = "Create";
 }
 
-        @foreach (var item in Model)
+        @foreach (TempNote note in Model.TempNote)
        {
-           
+           <p>@note.q</p>
+           <h4>@note.a</h4>
        }
 
 
