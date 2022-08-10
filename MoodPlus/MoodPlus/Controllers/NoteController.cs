@@ -37,8 +37,9 @@ namespace MoodPlus.Controllers
 
         public async Task<IActionResult> Create()
         {
-            string apiURL = "https://zenquotes.io/api/random/";
+            string apiURL = $"https://zenquotes.io/api/random/";
             string quote = "";
+            string author = "";
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(apiURL);
@@ -50,6 +51,7 @@ namespace MoodPlus.Controllers
                     var data = await response.Content.ReadAsStringAsync();
                     var json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TempNote>>(data);
                     quote = json[0].q;
+                    author = json[0].a;
                 }
             }
 
@@ -66,7 +68,7 @@ namespace MoodPlus.Controllers
             Note posiNote = new Note() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId };
             db.Notes.Add(posiNote);
             db.SaveChanges();
-            return View();
+            return View(db.Notes);
         }
 
 

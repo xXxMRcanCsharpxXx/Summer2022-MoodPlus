@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MoodPlus.Data;
 
@@ -11,9 +12,10 @@ using MoodPlus.Data;
 namespace MoodPlus.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220809191128_noteUpdate")]
+    partial class noteUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -313,11 +315,11 @@ namespace MoodPlus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("LastLogin")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("LongestStreak")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("NextLogin")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("Streak")
                         .HasColumnType("int");
@@ -334,8 +336,8 @@ namespace MoodPlus.Migrations
                         {
                             Id = 1,
                             AccountId = "test",
+                            LastLogin = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LongestStreak = 0,
-                            NextLogin = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Streak = 0
                         });
                 });
@@ -362,11 +364,11 @@ namespace MoodPlus.Migrations
                         {
                             Id = "test",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f90ffeda-32e6-4ebb-8257-74d8f9b34b92",
+                            ConcurrencyStamp = "f11c8a1a-5226-45c8-8d34-3ac84baca79e",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f265450c-abbe-4856-a930-686f8473535c",
+                            SecurityStamp = "2be44368-c4b8-429b-9c97-c1348a6dcbd3",
                             TwoFactorEnabled = false,
                             Name = "test",
                             Password = "test"
