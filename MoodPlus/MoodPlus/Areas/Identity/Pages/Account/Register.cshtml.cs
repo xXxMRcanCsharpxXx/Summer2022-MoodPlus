@@ -138,7 +138,7 @@ namespace MoodPlus.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    Models.Patient patient = new Models.Patient() { Id = 0, AccountId = userId, Streak = 1, LongestStreak = 1, LastLogin=DateTime.Now};
+                    Models.Patient patient = new Models.Patient() { Id = 0, AccountId = userId, Streak = 1, LongestStreak = 1, NextLogin = DateTime.Now.AddDays(1)};
                     _db.Patients.Add(patient);
                     _db.SaveChanges();
 

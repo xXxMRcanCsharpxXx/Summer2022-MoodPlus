@@ -14,7 +14,7 @@ namespace MoodPlus.Models
         public virtual ICollection<Note> Outbox { get; set; }
         public int Streak { get; set; }
         public int LongestStreak { get; set; }
-        public DateTime LastLogin { get; set; }
+        public DateTime NextLogin { get; set; }
     }
    
 }
