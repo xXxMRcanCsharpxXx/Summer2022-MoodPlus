@@ -18,9 +18,22 @@ namespace MoodPlus.Controllers
         }
 
         [Authorize]
-        public IActionResult Index()
+        [Route("Entry/Index/{page?}")]
+        public IActionResult Index(int? page)
         {
-            return View(db.Entries.ToList());
+            string userId = userManager.GetUserId(HttpContext.User);
+            Account account = db.Accounts.Find(userId);
+            int patientId = account.Patient.Id;
+            int resultsPerPage = 10;
+            if (page < 1 || page == null || (page - 1) * resultsPerPage > db.Entries.Count())
+            {
+                page = 1;
+            }
+
+            List<Entry> entries = db.Entries.Where(e => e.PatientId == patientId).ToList();
+            entries.Reverse();
+            IEnumerable<Entry> pageEntries = entries.Skip(resultsPerPage * ((int)page - 1)).Take(resultsPerPage); // skips 20 and grabs 10 (21-30) entries from our database 
+            return View(pageEntries);
         }
 
         [Authorize]
