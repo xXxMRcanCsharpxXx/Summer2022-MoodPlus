@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MoodPlus.Data;
 
@@ -11,9 +12,10 @@ using MoodPlus.Data;
 namespace MoodPlus.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220810154007_login")]
+    partial class login
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -362,11 +364,11 @@ namespace MoodPlus.Migrations
                         {
                             Id = "test",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f90ffeda-32e6-4ebb-8257-74d8f9b34b92",
+                            ConcurrencyStamp = "78062c1e-1a42-4b0e-a477-20dcc040cfc1",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f265450c-abbe-4856-a930-686f8473535c",
+                            SecurityStamp = "194e08ed-2fb4-46a2-9f5a-0e0506a6eb0e",
                             TwoFactorEnabled = false,
                             Name = "test",
                             Password = "test"

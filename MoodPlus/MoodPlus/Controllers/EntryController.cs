@@ -20,7 +20,7 @@ namespace MoodPlus.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            return View(db.Entries);
+            return View(db.Entries.ToList());
         }
 
         [Authorize]

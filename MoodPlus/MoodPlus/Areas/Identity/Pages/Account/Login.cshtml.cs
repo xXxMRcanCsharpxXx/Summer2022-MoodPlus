@@ -122,24 +122,21 @@ namespace MoodPlus.Areas.Identity.Pages.Account
                     var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
                     var userId = user.Id;
                     Models.Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
-                    DateTime currDate = DateTime.Now;
-                    DateTime timeLimit = patient.LastLogin.AddDays(1);
-                    // let's come back to this if we have time
-                    if (currDate <= timeLimit)
+                    if(DateTime.Now > patient.NextLogin)
                     {
-                        patient.Streak++;
-                        patient.LastLogin = currDate;
-                        if(patient.LongestStreak < patient.Streak)
+                        if(DateTime.Now.Subtract(patient.NextLogin).TotalHours > 24)
                         {
-                            patient.LongestStreak = patient.Streak;
+                            patient.Streak = 1;
                         }
-                        db.Patients.Update(patient);
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        patient.Streak = 1;
-                        patient.LastLogin = currDate;
+                        else
+                        {
+                            patient.Streak++;
+                            if(patient.Streak > patient.LongestStreak)
+                            {
+                                patient.LongestStreak = patient.Streak;
+                            }
+                        }
+                        patient.NextLogin = DateTime.Now.AddHours(24);
                         db.Patients.Update(patient);
                         db.SaveChanges();
                     }

@@ -8,13 +8,16 @@
 
 <div>
     <h4>Entry</h4>
+    <a asp-action="Create">Create</a>
     <hr />
     @foreach ( Entry entry in Model) {
-        <h5>@entry.Body</h5>
-        <div>
-            <a asp-action="Update" asp-route-id="@entry?.Id">Update</a> |
-            <a asp-action="Delete" asp-route-id="@entry?.Id">Delete</a> |
-            <a asp-action="Create" asp-route-id="@entry?.Id">Create</a>
-        </div>
+        <h5>Body: </h5>
+        <p>@entry.Body</p>
+        @foreach (MoodRating mood in entry.Moods)
+        {
+            <p>@mood.Feeling @mood.Rating</p>
+        }
+        <a asp-action="Update" asp-route-id="@entry?.Id">Update</a> 
+        <a asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
     }
 </div>
