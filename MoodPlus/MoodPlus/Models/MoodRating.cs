@@ -12,12 +12,12 @@
     public enum Feeling
     {
         Anxiety,
+        Happiness,
+        Stressed,
+        Sadness,
+        Overwhelmed,
         Anger,
         Calm,
-        Loved,
-        Stressed,
-        Happiness,
-        Sadness,
-        Overwhelmed
+        Loved
     }
 }
