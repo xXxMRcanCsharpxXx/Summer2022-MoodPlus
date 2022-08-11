@@ -12,7 +12,7 @@ namespace MoodPlus.Models
         public int ReceiverId {get; set; } 
         // Allows us to track sending/recieving quotes between users.
         public virtual Patient Receiver { get; set; }
-        
-       
+        public DateTime DateReceived { get; set; }
+        public bool IsRead { get; set; }
     }
 }
