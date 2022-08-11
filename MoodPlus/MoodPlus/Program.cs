@@ -17,6 +17,13 @@ builder.Services.AddIdentity<Account, IdentityRole>(options => options.SignIn.Re
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:7040").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -36,6 +43,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseCors("MyPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();

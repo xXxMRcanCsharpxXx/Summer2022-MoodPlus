@@ -37,7 +37,7 @@ namespace MoodPlus.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create()
-        {
+        {  
             string apiURL = "https://zenquotes.io/api/random/";
             string quote = "";
             using (var client = new HttpClient())
@@ -91,5 +91,17 @@ namespace MoodPlus.Controllers
         //{
         //    return View();
         //}
+
+        [HttpPost]
+        public void ReadMessage(int id)
+        {
+            Note Note = db.Notes.Find(id);
+            if (!Note.IsRead)
+            {
+                Note.IsRead = true;
+                db.Notes.Update(Note);
+                db.SaveChanges();
+            }
+        }
     }
 }
