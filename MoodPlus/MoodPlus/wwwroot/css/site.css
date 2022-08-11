@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+
 }
 
 @media (min-width: 768px) {
@@ -15,4 +16,29 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+#mainHeader {
+   
+    background-color: #F2EBDC;
+}
+#mainBody {
+    background-color: #F2EBDC;
+}
+#mainNav {
+    background-color: #F2EBDC;
+}
+#lineTest {
+    background-color: #1A4B5F;
+    
+}
+.nav-link,
+#MLink {
+   
+    font-size: larger;
+}
+.nav-link:hover,
+#MLink:hover {
+    background-color:#60AEBF;
+    transition: 2s;
+    transform: scale(1.07);
 }

@@ -13,6 +13,7 @@
                 animationEnabled: true,
                 theme: "light2",
                 title: { text: "Your Mood Chart" },
+                backgroundColor:"#F2EBDC",
                 axisX: { valueFormatString: "DD MMM" },
                 axisY: { 
                     title: "Mood Rating",
@@ -26,7 +27,8 @@
                     cursor: "pointer",
 		            verticalAlign: "top",
 		            horizontalAlign: "center",
-		            dockInsidePlotArea: true
+		            dockInsidePlotArea: false,
+                    
                 },
                 data: [
                     {
@@ -64,7 +66,7 @@
                     },
                     {
                         type:"line",
-                        color: "pink",
+                        color: " #F26B8A",
 		                axisYType: "primary",
 		                name: "Calm",
 		                showInLegend: true,
