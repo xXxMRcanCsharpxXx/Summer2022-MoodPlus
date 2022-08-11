@@ -9,6 +9,7 @@
 <div>
     <h4>Entry</h4>
     <a asp-action="Create">Create</a>
+    <a asp-controller="Home" asp-action="Graph">Graph</a>
     <hr />
     @foreach ( Entry entry in Model) {
         <h5>Body: </h5>
@@ -20,4 +21,5 @@
         <a asp-action="Update" asp-route-id="@entry?.Id">Update</a> 
         <a asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
     }
+    
 </div>
