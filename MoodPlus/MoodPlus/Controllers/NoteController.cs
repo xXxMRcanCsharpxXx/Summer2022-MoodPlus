@@ -60,11 +60,12 @@ namespace MoodPlus.Controllers
             Account account = db.Accounts.Find(userId);
             int senderId = account.Patient.Id;
 
+            // currently have option to send message to self. come back to this if we dont want that to be the case
             Random r = new Random();
             int rand = r.Next(0, db.Patients.Count());
             int recieverId = db.Patients.Skip(rand).FirstOrDefault().Id;
             
-            Note posiNote = new Note() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId };
+            Note posiNote = new Note() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId, IsRead = false, DateReceived = DateTime.Now };
             db.Notes.Add(posiNote);
             db.SaveChanges();
             return RedirectToAction("Inbox");
@@ -72,7 +73,17 @@ namespace MoodPlus.Controllers
 
         public IActionResult Inbox()
         {
-            return View();
+            string userId = userManager.GetUserId(HttpContext.User);
+            Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
+            List<Note> inboxNotes = patient.Inbox.ToList();
+            // Pagination ^^
+            //foreach (Note n in inboxNotes)
+            //{
+            //    n.IsRead = true;
+            //    db.Notes.Update(n);
+            //    db.SaveChanges();
+            //}
+            return View(inboxNotes);
         }
 
 

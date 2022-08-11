@@ -1,4 +1,35 @@
-﻿<p>Inbox</p>
+﻿@model IEnumerable<Note>
 
-<a asp-action="Create">Send Message</a>
+
+<p>Inbox</p>
+
+<div>
+
+    @foreach(Note n in Model)
+    {
+        if(n.IsRead)
+        {
+            <p class="ReadMessage">@n.Quote</p>
+
+        }
+        else
+        {
+            <h1 class="UnreadMessage">@n.Quote</h1>
+        }
+    }
+
+</div>
+
+
+
+
+
+<form asp-action="Create">
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+
+
 
