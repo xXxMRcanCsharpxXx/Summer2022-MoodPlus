@@ -1,11 +1,12 @@
-﻿using System.Runtime.Serialization;
+﻿using MoodPlus.Models;
+using System.Runtime.Serialization;
 
-namespace MoodPlus.Models
+namespace MoodPlus.Data
 {
     [DataContract]
     public class DataPoint
     {
-        
+
         public int Feeling { get; set; }
 
         [DataMember(Name = "y")]
@@ -14,11 +15,11 @@ namespace MoodPlus.Models
         [DataMember(Name = "x")]
         public double Date { get; set; }
 
-        public DataPoint (Feeling feeling, int rating, DateTime date)
+        public DataPoint(Feeling feeling, int rating, DateTime date)
         {
-            Feeling = (int) feeling;    
+            Feeling = (int)feeling;
             Rating = rating;
-            Date = date.Subtract(new DateTime(1970,1,1,0,0,0)).TotalMilliseconds;
+            Date = date.Subtract(new DateTime(1970, 1, 1, 0, 0, 0)).TotalMilliseconds;
         }
     }
 
