@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.col-sm-10 {
+    max-width: 1000px;
+}
+
+.text-center {
+    line-height: 1.8px;
+}
