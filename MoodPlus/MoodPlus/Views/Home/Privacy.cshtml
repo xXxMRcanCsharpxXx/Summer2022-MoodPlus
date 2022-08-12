@@ -3,10 +3,12 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>This is MoodPlus site's privacy policy.</p>
-<div>
-    
-   <style>
+<p>This is MoodPlus site's privacy policy.
+    Click the button below to show the privacy policy.
+</p>
+<button onclick="policy-body">Privacy Policy</button>
+<div id="policy-body">
+    <style>
   [data-custom-class='body'], [data-custom-class='body'] * {
           background: transparent !important;
         }
@@ -63,3 +65,16 @@
       This privacy policy was created using Termly's <a style="color: rgb(48, 48, 241) !important;" href="https://termly.io/products/privacy-policy-generator/">Privacy Policy Generator</a>.
       </div>
 </div>
+   
+@section Scripts{
+   <script>
+       window.onload = function () {
+           let x = document.getElementById("policy-body");
+           if (x.style.display === "none") {
+               x.style.display = "block";
+           } else {
+               x.style.display = "none";
+           }
+       }
+   </script>
+}
