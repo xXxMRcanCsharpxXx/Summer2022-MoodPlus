@@ -3,11 +3,14 @@
 
 // Write your JavaScript code.
 
-function myFunction() {
-    var x = document.getElementById("policy-body");
-    if (x.style.display === "none") {
-        x.style.display = "block";
+const btn = document.getElementById('policy-btn');
+
+btn.addEventListener('click', () => {
+    const pol = document.getElementById('policy-body');
+
+    if (pol.style.display === 'none') {
+        pol.style.display = 'block';
     } else {
-        x.style.display = "none";
+        pol.style.display = 'none';
     }
-}
+});
