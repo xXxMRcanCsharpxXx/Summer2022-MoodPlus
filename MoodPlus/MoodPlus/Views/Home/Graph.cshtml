@@ -19,7 +19,8 @@
                     title: "Mood Rating",
                     interval: 1,
                     minimum: 1,
-                    maximum: 5
+                    maximum: 5.5,
+                    margin: 10
 
                 },
                 toolTip: { shared: true },
@@ -48,7 +49,7 @@
 		                axisYType: "primary",
 		                name: "Anxiety",
 		                showInLegend: true,
-		                markerSize: 1,
+		                markerSize:1,
                         xValueType: "dateTime",
 		                yValueFormatString: "#",
                         dataPoints: @Html.Raw(ViewBag.Anxiety)
