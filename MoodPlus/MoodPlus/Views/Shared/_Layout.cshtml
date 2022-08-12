@@ -7,42 +7,46 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MoodPlus.styles.css" asp-append-version="true" />
+      <link rel="icon" href="/img/favicon.ico" type="image/ico"/> 
 </head>
-<body>
-    <header>
+<body id = "mainBody">
+    <header id = "mainHeader">
         @await RenderSectionAsync("Graph", required: false)
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MoodPlus</a>
+        <nav   class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
+            <div id = "mainNav" class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mood+</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Entry" asp-action="Index">Entry</a>
+                            <a class="nav-link " asp-area="" asp-controller="Entry" asp-action="Index">Entry</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Note" asp-action="Inbox">Inbox</a>
+
+                            <a class="nav-link " asp-area="" asp-controller="Note" asp-action="Index">Notes</a>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name">Account</a>
+                            <a class="nav-link " asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name">Account</a>
                         </li>
                          <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
                         </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Help</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Help">Help</a>
+
+                         <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -58,7 +62,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - MoodPlus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - MoodPlus - <a id ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
