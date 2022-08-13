@@ -6,11 +6,10 @@
 const btn = document.getElementById('policy-btn');
 
 btn.addEventListener('click', () => {
-    const pol = document.getElementById('policy-body');
-
+    var pol = document.getElementById('policy-body');
     if (pol.style.display === 'none') {
-        pol.style.display = 'block';
-    } else {
         pol.style.display = 'none';
+    } else {
+        pol.style.display = 'block';
     }
 });
