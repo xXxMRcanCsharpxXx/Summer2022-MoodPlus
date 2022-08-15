@@ -4,12 +4,13 @@
 // Write your JavaScript code.
 
 const btn = document.getElementById('policy-btn');
+let pol = document.getElementById('policy-body');
+pol.style.display = 'none';
 
 btn.addEventListener('click', () => {
-    var pol = document.getElementById('policy-body');
-    if (pol.style.display === 'none') {
+    if (pol.style.display === 'flex') {
         pol.style.display = 'none';
     } else {
-        pol.style.display = 'block';
+        pol.style.display = 'flex';
     }
 });
