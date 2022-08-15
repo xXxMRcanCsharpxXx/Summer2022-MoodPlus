@@ -4,15 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Journal</h1>
 
 <div style="word-wrap:break-word;">
-    <h4>Entry</h4>
+    
     <a asp-action="Create">Create</a>
-    <a asp-controller="Home" asp-action="Graph">Graph</a>
+   
     <hr />
     @foreach ( Entry entry in Model) {
-        <h5>Body:</h5>
+        <div id= "JournalIndex">
+        <h5>My Thoughts...</h5>
         <p class="col-sm-10">@entry.Body</p>
         <h5>Moods:</h5>
         @foreach (MoodRating mood in entry.Moods)
@@ -21,6 +22,7 @@
         }
         <a asp-action="Update" asp-route-id="@entry?.Id">Update</a> 
         <a asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
+        </div>
     }
     
 </div>
