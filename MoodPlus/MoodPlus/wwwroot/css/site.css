@@ -71,3 +71,14 @@ body {
     margin: auto;
     font-size: 1rem
 }
+
+.navbar-toggler {
+    width: 65px;
+    height: 25px;
+    background-color: #1E90FF;
+    margin: 6px 0;
+    transition: 0.4s;
+    color: ghostwhite;
+    font-family: unset;
+    
+}
