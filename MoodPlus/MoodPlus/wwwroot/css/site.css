@@ -43,3 +43,13 @@ body {
     transition: 2s;
     transform: scale(1.07);
 }
+#policy-body {
+
+}
+#policy-header {
+    background-color: #60AEBF;
+    color: #F2EBDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
