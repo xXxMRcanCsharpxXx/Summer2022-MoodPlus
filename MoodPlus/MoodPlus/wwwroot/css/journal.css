@@ -1,0 +1,32 @@
+﻿.JournalItem {
+    margin: 50px;
+    background-color: #F09589;
+    padding: 10px;
+}
+
+.JournalHeader {
+    font-family: "Kanit", sans-serif;
+}
+
+.MoodGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+  
+}
+.MoodItem {
+    font-family: "Figtree", sans-serif;
+ 
+}
+.Journalbutton:link {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight:700;
+    display: inline-block;
+}
+.Journalbutton:visited {
+    
+    color: #F2EBDC;
+  
+}

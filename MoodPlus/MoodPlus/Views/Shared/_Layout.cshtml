@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MoodPlus.styles.css" asp-append-version="true" />
-      <link rel="icon" href="/img/favicon.ico" type="image/ico"/> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DynaPuff">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Figtree">
+    <link rel="icon" href="/img/favicon.ico" type="image/ico"/> 
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body id = "mainBody">
     <header id = "mainHeader">
@@ -16,7 +20,7 @@
             <div id = "mainNav" class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mood+</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Toggle navigation">Menu
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -33,19 +37,21 @@
 
 
                                 <a class="nav-link " asp-area="" asp-controller="Note" asp-action="Inbox">Notes</a>
-
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name">Account</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
-                            </li>
+
+
+
 
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
                             </li>
                         }
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
+                            </li>
                     </ul>
                         
                         <partial name="_LoginPartial" />
@@ -61,7 +67,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - MoodPlus - <a id ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Mood+ - <a id ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
