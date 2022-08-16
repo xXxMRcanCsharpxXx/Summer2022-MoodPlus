@@ -17,10 +17,6 @@ namespace MoodPlus.Controllers
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
         public IActionResult Delete()
         {
             return RedirectToAction("Index");
@@ -77,7 +73,8 @@ namespace MoodPlus.Controllers
             Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
             // Pagination ^^
             int resultsPerPage = 5;
-            if (page < 1 || page == null || (page - 1) * resultsPerPage > db.Notes.Count())
+            int count = patient.Inbox.Count();
+            if (page < 1 || page == null || (page - 1) * resultsPerPage > count)
             {
                 ViewBag.Page = 1;
                 page = 1;
@@ -87,7 +84,7 @@ namespace MoodPlus.Controllers
                 ViewBag.Page = page;
             }
 
-            if ((page) * resultsPerPage > db.Notes.Count())
+            if ((page) * resultsPerPage > count)
             {
                 ViewBag.HasNextPage = false;
             }

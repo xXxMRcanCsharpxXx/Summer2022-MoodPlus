@@ -25,7 +25,8 @@ namespace MoodPlus.Controllers
             Account account = db.Accounts.Find(userId);
             int patientId = account.Patient.Id;
             int resultsPerPage = 5;
-            if (page < 1 || page == null || (page - 1) * resultsPerPage > db.Entries.Count())
+            int count = db.Patients.Find(patientId).Entries.Count();
+            if (page < 1 || page == null || (page - 1) * resultsPerPage > count)
             {
                 ViewBag.Page = 1;
                 page = 1;
@@ -35,7 +36,7 @@ namespace MoodPlus.Controllers
                 ViewBag.Page = page;
             }
 
-            if((page) * resultsPerPage > db.Entries.Count())
+            if((page) * resultsPerPage > count)
             {
                 ViewBag.HasNextPage = false;
             } 
@@ -113,6 +114,28 @@ namespace MoodPlus.Controllers
         [HttpPost]
         public IActionResult Create(TempEntry model)
         {
+            // grab user
+            var userId = userManager.GetUserId(HttpContext.User);
+            Models.Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
+            if (DateTime.Now > patient.NextLogin)
+            {
+                if (DateTime.Now.Subtract(patient.NextLogin).TotalHours > 24)
+                {
+                    patient.Streak = 1;
+                }
+                else
+                {
+                    patient.Streak++;
+                    if (patient.Streak > patient.LongestStreak)
+                    {
+                        patient.LongestStreak = patient.Streak;
+                    }
+                }
+                patient.NextLogin = DateTime.Now.AddHours(24);
+                db.Patients.Update(patient);
+                db.SaveChanges();
+            }
+
             Entry entry = new Entry() { Id = 0, PatientId = model.PatientId, Body = model.Body, Date=DateTime.Now };
             db.Entries.Add(entry);
             db.SaveChanges();
