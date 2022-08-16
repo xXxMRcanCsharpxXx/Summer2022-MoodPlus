@@ -21,6 +21,17 @@
     }
 
 </div>
+<div id="pageNav">
+@if (ViewBag.HasLastPage)
+{
+    <a class="Journalbutton" href="/Note/Inbox/@ViewBag.LastPage">Prev</a>
+}
+<p>@ViewBag.Page</p>
+@if (ViewBag.HasNextPage)
+{
+    <a class="Journalbutton" href="/Note/Inbox/@ViewBag.NextPage">Next</a>
+}
+</div>
 
 <form asp-action="Create">
     <input type="submit" value="Create" class="btn btn-primary" />

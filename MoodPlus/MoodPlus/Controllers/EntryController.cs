@@ -24,12 +24,36 @@ namespace MoodPlus.Controllers
             string userId = userManager.GetUserId(HttpContext.User);
             Account account = db.Accounts.Find(userId);
             int patientId = account.Patient.Id;
-            int resultsPerPage = 10;
+            int resultsPerPage = 5;
             if (page < 1 || page == null || (page - 1) * resultsPerPage > db.Entries.Count())
             {
+                ViewBag.Page = 1;
                 page = 1;
+            } 
+            else
+            {
+                ViewBag.Page = page;
             }
 
+            if((page) * resultsPerPage > db.Entries.Count())
+            {
+                ViewBag.HasNextPage = false;
+            } 
+            else
+            {
+                ViewBag.HasNextPage = true;
+                ViewBag.NextPage = page + 1;
+            }
+
+            if (page == 1)
+            {
+                ViewBag.HasLastPage = false;
+            }
+            else
+            {
+                ViewBag.HasLastPage = true;
+                ViewBag.LastPage = page - 1;
+            }
             List<Entry> entries = db.Entries.Where(e => e.PatientId == patientId).ToList();
             entries.Reverse();
             IEnumerable<Entry> pageEntries = entries.Skip(resultsPerPage * ((int)page - 1)).Take(resultsPerPage); // skips 20 and grabs 10 (21-30) entries from our database 
