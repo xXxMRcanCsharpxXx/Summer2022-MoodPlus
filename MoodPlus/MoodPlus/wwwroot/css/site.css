@@ -46,7 +46,7 @@ body {
 .nav-link:hover,
 #MLink:hover {
     background-color:#60AEBF;
-    transition: 2s;
+    transition: .5s;
     transform: scale(1.07);
 }
 
@@ -62,6 +62,16 @@ body {
     align-items: center;
 }
 
+
+#navItemStreak, #navItemStreak2 {
+    border-color: powderblue;
+    margin-left: 550px;
+    max-height:30px;
+    max-inline-size: 350px;
+    
+   
+}
+
 .form-floating {
     display: flex;
     padding: 5PX;
@@ -70,7 +80,7 @@ body {
 
 .col-md-4 {
     margin: auto;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 .navbar-toggler {
@@ -83,3 +93,4 @@ body {
     font-family: unset;
     
 }
+

@@ -48,6 +48,7 @@
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
                             </li>
+                            @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name});
                         }
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
