@@ -94,3 +94,18 @@ body {
     
 }
 
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+   
+}
+
+.image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    
+  
+}
