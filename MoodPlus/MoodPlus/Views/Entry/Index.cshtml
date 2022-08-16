@@ -8,21 +8,31 @@
 
 <div style="word-wrap:break-word;">
     
-    <a asp-action="Create">Create</a>
+    <a class="Journalbutton" asp-action="Create">Create</a>
    
     <hr />
     @foreach ( Entry entry in Model) {
-        <div id= "JournalIndex">
-        <h5>My Thoughts...</h5>
-        <p class="col-sm-10">@entry.Body</p>
-        <h5>Moods:</h5>
-        @foreach (MoodRating mood in entry.Moods)
-        {
-            <p>@mood.Feeling @mood.Rating</p>
-        }
-        <a asp-action="Update" asp-route-id="@entry?.Id">Update</a> 
-        <a asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
+        <div class= "JournalItem">
+            <h5 class="JournalHeader ">My Thoughts:</h5>
+            <p >@entry.Body</p>
+            <h5 class="JournalHeader">Moods:</h5>
+            <div class="MoodGrid">
+                @foreach (MoodRating mood in entry.Moods)
+                {
+                    <p class="MoodItem">@mood.Feeling @mood.Rating</p>
+                }
+            </div>
+            <a class="Journalbutton" asp-action="Update" asp-route-id="@entry?.Id">Update</a> 
+            <a class="Journalbutton" asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
         </div>
     }
     
 </div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/journal.css" asp-append-version="true" />
+}
+
+@section Scripts{
+
+}

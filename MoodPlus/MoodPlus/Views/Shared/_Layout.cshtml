@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MoodPlus.styles.css" asp-append-version="true" />
-      <link rel="icon" href="/img/favicon.ico" type="image/ico"/> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DynaPuff">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Figtree">
+    <link rel="icon" href="/img/favicon.ico" type="image/ico"/> 
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body id = "mainBody">
     <header id = "mainHeader">
