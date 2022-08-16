@@ -23,12 +23,15 @@ body {
    
     background-color: #F2EBDC;
 }
+
 #mainBody {
     background-color: #F2EBDC;
 }
+
 #mainNav {
     background-color: #F2EBDC;
 }
+
 #lineTest {
     background-color: #1A4B5F;
     
@@ -39,19 +42,44 @@ body {
    
     font-size: larger;
 }
+
 .nav-link:hover,
 #MLink:hover {
     background-color:#60AEBF;
     transition: 2s;
     transform: scale(1.07);
 }
+
 #policy-body {
 
 }
+
 #policy-header {
     background-color: #60AEBF;
     color: #F2EBDC;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-floating {
+    display: flex;
+    padding: 5PX;
+
+}
+
+.col-md-4 {
+    margin: auto;
+    font-size: 1rem
+}
+
+.navbar-toggler {
+    width: 65px;
+    height: 25px;
+    background-color: #1E90FF;
+    margin: 6px 0;
+    transition: 0.4s;
+    color: ghostwhite;
+    font-family: unset;
+    
 }
