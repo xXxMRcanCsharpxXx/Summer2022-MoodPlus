@@ -1,6 +1,8 @@
 :root {
     --backgroundColor: #F2EBDC;
     --fontColor: #60AEBF;
+    --PrimaryColor: #1A4B5F;
+    --HoverColor: #60AEBF;
 }
 /*Create possible variables we may need.*/
 
@@ -38,15 +40,15 @@ body {
     background-color: var(--backgroundColor);
 }
 #lineTest {
-    background-color: #1A4B5F;
+    background-color: var(--PrimaryColor);
     
 }
 .nav-link, #MLink {
    
     font-size: larger;
 }
-.nav-link:hover, #MLink:hover {
-    background-color: #60AEBF;
+.nav-link:hover, #MLink:hover, a:hover {
+    background-color: var(--HoverColor);
     transition: 2s;
     transform: scale(1.07);
 }
