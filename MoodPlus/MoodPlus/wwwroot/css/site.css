@@ -63,19 +63,29 @@ body {
 }
 
 
-#navItemStreak, #navItemStreak2 {
-    border-color: powderblue;
-    margin-left: 550px;
-    max-height:30px;
-    max-inline-size: 350px;
+
+
+
+
+#navItemStreak {
+    border-color:cornsilk;
+    border-width: 3px;
+    margin-left: 345px;
+    position:absolute;
+    background-color:wheat;
+    color: tomato;
+    border-radius: 10px;
     
+    
+    
+    
+     
    
 }
 
 .form-floating {
     display: flex;
     padding: 5PX;
-
 }
 
 .col-md-4 {
