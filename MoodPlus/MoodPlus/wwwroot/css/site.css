@@ -41,7 +41,7 @@ body {
 .nav-link:hover,
 #MLink:hover {
     background-color:#60AEBF;
-    transition: 2s;
+    transition: .5s;
     transform: scale(1.07);
 }
 #policy-body {
@@ -53,4 +53,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#navItemStreak, #navItemStreak2 {
+    border-color: powderblue;
+    margin-left: 550px;
+    max-height:30px;
+    max-inline-size: 350px;
+    
+   
 }
