@@ -1,16 +1,23 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const toggleSwitch = document.getElementById("darkmodeSwitch");
+const currentTheme = localStorage.getItem("theme");
 
-// Write your JavaScript code.
+if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
 
-const btn = document.getElementById('policy-btn');
-let pol = document.getElementById('policy-body');
-pol.style.display = 'none';
-
-btn.addEventListener('click', () => {
-    if (pol.style.display === 'flex') {
-        pol.style.display = 'none';
-    } else {
-        pol.style.display = 'flex';
+    if (currentTheme == "dark") {
+        toggleSwitch.checked = true;
     }
-});
+}
+
+function ToggleDarkMode(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+    }
+    else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+    }
+}
+
+toggleSwitch.addEventListener("change", ToggleDarkMode, false);
