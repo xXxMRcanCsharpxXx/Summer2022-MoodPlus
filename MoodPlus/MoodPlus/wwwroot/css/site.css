@@ -1,4 +1,5 @@
 :root {
+    --cardBackgroundColor: #F09589;
     --backgroundColor: #F2EBDC;
     --fontColor: #1A4B5F;
     --PrimaryColor: #1A4B5F;
@@ -61,7 +62,9 @@ body {
    
     font-size: larger;
 }
-.nav-link:hover, .MLink:hover, a:hover {
+
+.nav-link:hover, #MLink:hover {
+    border-radius: 20px;
     background-color: var(--HoverColor);
     transition: 2s;
     transform: scale(1.00);

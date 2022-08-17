@@ -8,16 +8,16 @@
 .carousel__item {
     max-height: 450px;
     background: var(--HoverColor);
-    padding: 0.5em;
     font-family: "Quicksand", sans-serif;
     font-weight: bold;
     font-size: 2em;
-    color: var(--PrimaryColor);
+    color: var(--fontColor);
     display: none;
 }
 
 .carousel__item--selected {
     display: block;
+    padding: 35px;
 }
 
 .carousel__nav {
@@ -40,5 +40,27 @@
 }
 
 .carousel__button--selected {
-    background: var(--PrimaryColor);
+    background: #1A4B5F;
 }
+
+.resource-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 30px;
+    border-bottom: solid 1px;
+    
+}
+
+.resource-card {
+    display: grid;
+    justify-content: center;
+    margin: 20px;
+    border-radius: 20px;
+    background: var(--cardBackgroundColor);
+}
+
+.resource-card > a, p {
+    margin: 30px;
+}
+
