@@ -24,12 +24,37 @@ namespace MoodPlus.Controllers
             string userId = userManager.GetUserId(HttpContext.User);
             Account account = db.Accounts.Find(userId);
             int patientId = account.Patient.Id;
-            int resultsPerPage = 10;
-            if (page < 1 || page == null || (page - 1) * resultsPerPage > db.Entries.Count())
+            int resultsPerPage = 5;
+            int count = db.Patients.Find(patientId).Entries.Count();
+            if (page < 1 || page == null || (page - 1) * resultsPerPage > count)
             {
+                ViewBag.Page = 1;
                 page = 1;
+            } 
+            else
+            {
+                ViewBag.Page = page;
             }
 
+            if((page) * resultsPerPage > count)
+            {
+                ViewBag.HasNextPage = false;
+            } 
+            else
+            {
+                ViewBag.HasNextPage = true;
+                ViewBag.NextPage = page + 1;
+            }
+
+            if (page == 1)
+            {
+                ViewBag.HasLastPage = false;
+            }
+            else
+            {
+                ViewBag.HasLastPage = true;
+                ViewBag.LastPage = page - 1;
+            }
             List<Entry> entries = db.Entries.Where(e => e.PatientId == patientId).ToList();
             entries.Reverse();
             IEnumerable<Entry> pageEntries = entries.Skip(resultsPerPage * ((int)page - 1)).Take(resultsPerPage); // skips 20 and grabs 10 (21-30) entries from our database 
@@ -89,6 +114,28 @@ namespace MoodPlus.Controllers
         [HttpPost]
         public IActionResult Create(TempEntry model)
         {
+            // grab user
+            var userId = userManager.GetUserId(HttpContext.User);
+            Models.Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
+            if (DateTime.Now > patient.NextLogin)
+            {
+                if (DateTime.Now.Subtract(patient.NextLogin).TotalHours > 24)
+                {
+                    patient.Streak = 1;
+                }
+                else
+                {
+                    patient.Streak++;
+                    if (patient.Streak > patient.LongestStreak)
+                    {
+                        patient.LongestStreak = patient.Streak;
+                    }
+                }
+                patient.NextLogin = DateTime.Now.AddHours(24);
+                db.Patients.Update(patient);
+                db.SaveChanges();
+            }
+
             Entry entry = new Entry() { Id = 0, PatientId = model.PatientId, Body = model.Body, Date=DateTime.Now };
             db.Entries.Add(entry);
             db.SaveChanges();
