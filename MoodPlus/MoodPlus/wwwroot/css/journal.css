@@ -1,7 +1,10 @@
 ﻿.JournalItem {
-    margin: 50px;
+    
     background-color: #F09589;
-    padding: 10px;
+    padding: 20px;
+    border-color: #60AEBF;
+    border: dotted;
+    margin-bottom: 20px;
 }
 
 .JournalHeader {
@@ -15,6 +18,7 @@
 }
 .MoodItem {
     font-family: "Figtree", sans-serif;
+    margin-left: 1px;
  
 }
 .Journalbutton:link {
@@ -36,7 +40,7 @@
     width: 100%;
     background-color: #F09589;
     font-family: "Figtree";
-    padding: 75px;
+    padding: 10px;
     text-align: left;
 }
 .MoodGridCreate {
@@ -46,14 +50,13 @@
     font-family: "Figtree";
 }
 .moodForm {
-    padding: 10%;
+    padding-left: 10%;
 }
 .MoodCreate {
     font-size:large;
     font-weight: 700;
 }
 .JournalBody {
-  
     margin-top: 5%;
     background-color: #1a4B5f;
     height: 500px;
@@ -69,9 +72,9 @@
     width:80%;
     margin-left: 10%;
     height: 85%;
-    padding-top:5%;
+    padding-top:1%;
 }
-.JournalSubmit:link {
+#JournalSubmit {
     background-color: #1a4B5f;
     color: #F2EBDC;
     padding: 14px 15px;
@@ -80,6 +83,20 @@
     display: inline-block;
 }
 
-.JournalSubmit:visited {
-    color: #F2EBDC;
+
+#EntryIntro {
+    font-family: "Figtree", sans-serif;
+    font-size:large;
+    font-weight:400;
+}
+.BodyUpdate {
+    width: 80%;
+    margin-left: 10%;
+    height: 85%;
+    padding-top: 1%;
+    background-color: #F09589;
+}
+.emoji {
+    height: 15px;
+    width:  15px;
 }

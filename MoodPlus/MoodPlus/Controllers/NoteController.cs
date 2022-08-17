@@ -62,11 +62,16 @@ namespace MoodPlus.Controllers
             int recieverId = db.Patients.Skip(rand).FirstOrDefault().Id;
             
             Note posiNote = new Note() { Id = 0, Quote = quote, SenderId = senderId, ReceiverId = recieverId, IsRead = false, DateReceived = DateTime.Now };
-            db.Notes.Add(posiNote);
-            db.SaveChanges();
+            if (!quote.Contains("zenquotes.io"))
+            {
+                db.Notes.Add(posiNote);
+                db.SaveChanges();
+            }
+            
             return RedirectToAction("Inbox");
         }
 
+        [Route("Note/Inbox/{page?}")]
         public IActionResult Inbox(int? page)
         {
             string userId = userManager.GetUserId(HttpContext.User);
@@ -103,7 +108,9 @@ namespace MoodPlus.Controllers
                 ViewBag.HasLastPage = true;
                 ViewBag.LastPage = page - 1;
             }
-            IEnumerable<Note> inboxNotes = patient.Inbox.Skip(resultsPerPage * ((int)page - 1)).Take(resultsPerPage);
+            List<Note> notes = db.Notes.Where(n => n.ReceiverId == patient.Id).ToList();
+            notes.Reverse();
+            IEnumerable<Note> inboxNotes = notes.Skip(resultsPerPage * ((int)page - 1)).Take(resultsPerPage);
             return View(inboxNotes);
         }
 

@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DynaPuff">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Figtree">
-    <link rel="icon" href="/img/favicon.ico" type="image/ico"/> 
+    <link rel="shortcut icon" href="/img/faviconV2.ico" type="image/x-icon">
+    <link rel="icon" href="/img/faviconV2.ico" type="image/x-icon">
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body id = "mainBody">
@@ -18,16 +19,14 @@
         @await RenderSectionAsync("Graph", required: false)
         <nav   class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div id = "mainNav" class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mood+</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/moodplusv10.png" height="40px" width="60px"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">Menu
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
@@ -38,13 +37,13 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link " asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name">Account</a>
-                            </li>
-
-                            <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
                             </li>
                         }
+
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
+                        </li>
 
                          <li>
                             <label class="switch">
@@ -52,10 +51,6 @@
                                 <span class="slider round"></span>
                             </label>
                         </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
-                            </li>
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -76,7 +71,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Mood+ - <a id ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Mood+ - <a class ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - <a class ="MLink" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

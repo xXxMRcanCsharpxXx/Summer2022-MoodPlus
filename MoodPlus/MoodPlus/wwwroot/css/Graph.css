@@ -1,0 +1,21 @@
+﻿#StatGraphs {
+    display: grid;
+    height: 30vh;
+    width: 100%;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(2, 50%);
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.StatItem {
+    border: 1px solid black;
+}
+
+.timelineGraph {
+    display: block;
+    width: 80%;
+    height: 30%;
+    margin-bottom: 5px;
+}

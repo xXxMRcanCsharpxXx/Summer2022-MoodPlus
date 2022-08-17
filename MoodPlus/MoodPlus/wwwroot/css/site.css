@@ -1,15 +1,24 @@
 :root {
     --cardBackgroundColor: #F09589;
     --backgroundColor: #F2EBDC;
-    --fontColor: #60AEBF;
+    --fontColor: #1A4B5F;
     --PrimaryColor: #1A4B5F;
     --HoverColor: #60AEBF;
+    --StreakColor: #60AEBF;
+    --StreakText: #F2EBDC;
 }
 /*Create possible variables we may need.*/
 
 [data-theme="dark"] {
     --fontColor: #1A4B5F;
     --backgroundColor: #F2BC79;
+    --StreakColor: wheat;
+    --StreakText: tomato;
+}
+
+.navbar-nav{
+    justify-content: center;
+    align-items: center;
 }
 
 html {
@@ -49,22 +58,22 @@ body {
     
 }
 
-.nav-link, #MLink {
+.nav-link, .MLink {
    
     font-size: larger;
 }
+
 .nav-link:hover, #MLink:hover {
     border-radius: 20px;
     background-color: var(--HoverColor);
     transition: 2s;
-    transform: scale(1.07);
+    transform: scale(1.00);
 }
 /*toggle switch for darkmode*/
 .switch{
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 34px;
 }
 
 .switch input {
@@ -73,14 +82,11 @@ body {
     width: 0;
 }
 
-#policy-body {
-
-
 .slider{
     position: absolute;
     cursor: pointer;
     top: 0;
-    left: 0;
+    left: 6px;
     right: 0;
     bottom: 0;
     background-color: #ccc;
@@ -88,13 +94,12 @@ body {
     transition: .4s;
 }
 
-
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
+    height: 16px;
+    width: 16px;
+    left: 6px;
     bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
@@ -102,11 +107,11 @@ body {
 }
 
 input:checked + .slider {
-    background-color:aquamarine;
+    background-color: var(--HoverColor);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px aquamarine;
+    box-shadow: 0 0 1px var(--HoverColor);
 }
 
 input:checked + .slider:before {
@@ -123,6 +128,10 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+#policy-body {
+
+}
+
 #policy-header {
     background-color: #60AEBF;
     color: #F2EBDC;
@@ -132,15 +141,15 @@ input:checked + .slider:before {
 }
 
 #navItemStreak {
-    border-color:cornsilk;
-    border-width: 3px;
-    margin-left: 345px;
-    position:absolute;
-    background-color:wheat;
-    color: tomato;
+    border-style: none;
+    background-color: var(--StreakColor);
+    color: var(--StreakText);
     border-radius: 10px;
+}
+
+#streakNav {
+    margin-left: auto;
     
-   
 }
 
 .form-floating {
@@ -161,19 +170,5 @@ input:checked + .slider:before {
     transition: 0.4s;
     color: ghostwhite;
     font-family: unset;
-    
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-   
-}
-
-.image {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-    
-  
-}
