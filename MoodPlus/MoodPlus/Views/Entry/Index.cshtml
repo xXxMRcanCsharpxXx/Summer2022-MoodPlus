@@ -19,7 +19,7 @@
             <div class="MoodGrid">
                 @foreach (MoodRating mood in entry.Moods)
                 {
-                    <img src=""/>
+                    <img class="emoji" src="~/img/@(mood.Feeling)_icon.png"> 
                     <p class="MoodItem">@mood.Feeling @mood.Rating</p>
                 }
             </div>
@@ -32,7 +32,7 @@
     {
         <a class="Journalbutton" href="/Entry/Index/@ViewBag.LastPage">Prev</a>
     }
-    <p>@ViewBag.Page</p>
+    <p> Page Number @ViewBag.Page</p>
     @if (ViewBag.HasNextPage)
     {
         <a class="Journalbutton" href="/Entry/Index/@ViewBag.NextPage">Next</a>
