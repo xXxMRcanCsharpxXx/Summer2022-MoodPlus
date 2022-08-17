@@ -1,11 +1,15 @@
 ﻿@model Patient 
-<div id=" streakNav">
-<button id="navItemStreak">
-  Current 🔥  @Model.Streak
-</button>
+<div class=" streakNav">
 
-<button id="navItemStreak2">
+<a  asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name"> 
+    <button id="navItemStreak">
+        Current 🔥  @Model.Streak /
+        Longest 🔥 @Model.LongestStreak
+    </button>
+</a>
+
+@*<a id="navItemStreak2">
    Longest 🔥 @Model.LongestStreak
-</button>
-</div>
+</a>
+</div>*@
 

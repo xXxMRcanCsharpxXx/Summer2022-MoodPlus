@@ -117,30 +117,7 @@ namespace MoodPlus.Areas.Identity.Pages.Account
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
-                {
-                    // grab user
-                    var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
-                    var userId = user.Id;
-                    Models.Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
-                    if(DateTime.Now > patient.NextLogin)
-                    {
-                        if(DateTime.Now.Subtract(patient.NextLogin).TotalHours > 24)
-                        {
-                            patient.Streak = 1;
-                        }
-                        else
-                        {
-                            patient.Streak++;
-                            if(patient.Streak > patient.LongestStreak)
-                            {
-                                patient.LongestStreak = patient.Streak;
-                            }
-                        }
-                        patient.NextLogin = DateTime.Now.AddHours(24);
-                        db.Patients.Update(patient);
-                        db.SaveChanges();
-                    }
-                    
+                {                   
                     _logger.LogInformation("User logged in."); 
                     return LocalRedirect(returnUrl);
                 }

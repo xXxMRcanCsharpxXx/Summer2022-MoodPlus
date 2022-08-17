@@ -19,6 +19,7 @@
             <div class="MoodGrid">
                 @foreach (MoodRating mood in entry.Moods)
                 {
+                    <img src=""/>
                     <p class="MoodItem">@mood.Feeling @mood.Rating</p>
                 }
             </div>
@@ -26,7 +27,17 @@
             <a class="Journalbutton" asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
         </div>
     }
-    
+    <div id="pageNav">
+    @if (ViewBag.HasLastPage)
+    {
+        <a class="Journalbutton" href="/Entry/Index/@ViewBag.LastPage">Prev</a>
+    }
+    <p>@ViewBag.Page</p>
+    @if (ViewBag.HasNextPage)
+    {
+        <a class="Journalbutton" href="/Entry/Index/@ViewBag.NextPage">Next</a>
+    }
+    </div>
 </div>
 
 @section Styles{

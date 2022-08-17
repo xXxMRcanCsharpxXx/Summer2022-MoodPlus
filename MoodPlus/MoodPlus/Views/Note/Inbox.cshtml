@@ -10,16 +10,24 @@
 
         if(n.IsRead)
         {
-           
             <p class="ReadMessage">@n.Quote</p>
         }
         else
         {
             <p onclick="MarkAsRead(@n.Id)" class="UnreadMessage">Someone sent you an inspirational quote, click to read!</p>
         }
-        
     }
-
+</div>
+<div id="pageNav">
+@if (ViewBag.HasLastPage)
+{
+    <a class="Journalbutton" href="/Note/Inbox/@ViewBag.LastPage">Prev</a>
+}
+<p>@ViewBag.Page</p>
+@if (ViewBag.HasNextPage)
+{
+    <a class="Journalbutton" href="/Note/Inbox/@ViewBag.NextPage">Next</a>
+}
 </div>
 
 <form asp-action="Create">
@@ -36,15 +44,14 @@
             });
             // style change here
         }
-
-let unreadMsg = Array.from(document.getElementsByClassName("UnreadMessage"));
-unreadMsg.forEach(m => {
-    m.addEventListener("click", () => {
-        m.classList.remove("UnreadMessage");
-        m.classList.add("ReadMessage");
-    });
-})
-// add event listener that removes class and adds readmessage class for each thing in unreadmsg
+        let unreadMsg = Array.from(document.getElementsByClassName("UnreadMessage"));
+        unreadMsg.forEach(m => {
+            m.addEventListener("click", () => {
+                m.classList.remove("UnreadMessage");
+                m.classList.add("ReadMessage");
+            });
+        })
+        // add event listener that removes class and adds readmessage class for each thing in unreadmsg
     </script>
 }
 
