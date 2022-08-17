@@ -26,7 +26,60 @@
     display: inline-block;
 }
 .Journalbutton:visited {
-    
-    color: #F2EBDC;
+        color: #F2EBDC;
+ }
+
+.MoodGridForm {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    background-color: #F09589;
+    font-family: "Figtree";
+    padding: 75px;
+    text-align: left;
+}
+.MoodGridCreate {
+    width: 60%;
+    height: 10%;
+    text-align: right;
+    font-family: "Figtree";
+}
+.moodForm {
+    padding: 10%;
+}
+.MoodCreate {
+    font-size:large;
+    font-weight: 700;
+}
+.JournalBody {
   
+    margin-top: 5%;
+    background-color: #1a4B5f;
+    height: 500px;
+}
+.ThoughtsCreate {
+    font-family: "Kanit", sans-serif;
+    color: #F2EBDC;
+    font-size:x-large;
+    padding-left: 30px;
+    padding-top:5px;
+}
+.BodyCreate{
+    width:80%;
+    margin-left: 10%;
+    height: 85%;
+    padding-top:5%;
+}
+.JournalSubmit:link {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.JournalSubmit:visited {
+    color: #F2EBDC;
 }

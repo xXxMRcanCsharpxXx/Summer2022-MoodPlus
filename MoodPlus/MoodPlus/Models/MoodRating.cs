@@ -11,8 +11,8 @@
     }
     public enum Feeling
     {
-        Anxiety,
-        Happiness,
+        Anxiety, //Anxiety_icon.png
+        Happiness, //Happiness_icon.png
         Stressed,
         Sadness,
         Overwhelmed,
