@@ -1,17 +1,27 @@
 ﻿.grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 2px 4px;
+    text-align: center;
+    grid-gap: 10px;
 }
 
 .image {
-    width: 260px;
+    width: 100%;
     height: 260px;
     object-fit: cover;
     border: solid;
     border-color: var(--PrimaryColor);
 }
-ul{
+ul {
     margin: 0;
     padding: 2px;
+    color: var(--PrimaryColor);
+}
+.photo-card {
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 50%;
+    justify-content: center;
 }
