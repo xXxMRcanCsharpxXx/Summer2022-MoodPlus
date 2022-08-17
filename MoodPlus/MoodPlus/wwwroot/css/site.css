@@ -129,11 +129,6 @@ input:checked + .slider:before {
     align-items: center;
 }
 
-
-
-
-
-
 #navItemStreak {
     border-color:cornsilk;
     border-width: 3px;
@@ -143,10 +138,6 @@ input:checked + .slider:before {
     color: tomato;
     border-radius: 10px;
     
-    
-    
-    
-     
    
 }
 
@@ -171,4 +162,16 @@ input:checked + .slider:before {
     
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+   
+}
 
+.image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    
+  
+}
