@@ -17,10 +17,6 @@ namespace MoodPlus.Controllers
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
         public IActionResult Delete()
         {
             return RedirectToAction("Index");
@@ -71,26 +67,45 @@ namespace MoodPlus.Controllers
             return RedirectToAction("Inbox");
         }
 
-        public IActionResult Inbox()
+        public IActionResult Inbox(int? page)
         {
             string userId = userManager.GetUserId(HttpContext.User);
             Patient patient = db.Patients.Where(p => p.AccountId == userId).FirstOrDefault();
-            List<Note> inboxNotes = patient.Inbox.ToList();
             // Pagination ^^
-            //foreach (Note n in inboxNotes)
-            //{
-            //    n.IsRead = true;
-            //    db.Notes.Update(n);
-            //    db.SaveChanges();
-            //}
+            int resultsPerPage = 5;
+            int count = patient.Inbox.Count();
+            if (page < 1 || page == null || (page - 1) * resultsPerPage > count)
+            {
+                ViewBag.Page = 1;
+                page = 1;
+            }
+            else
+            {
+                ViewBag.Page = page;
+            }
+
+            if ((page) * resultsPerPage > count)
+            {
+                ViewBag.HasNextPage = false;
+            }
+            else
+            {
+                ViewBag.HasNextPage = true;
+                ViewBag.NextPage = page + 1;
+            }
+
+            if (page == 1)
+            {
+                ViewBag.HasLastPage = false;
+            }
+            else
+            {
+                ViewBag.HasLastPage = true;
+                ViewBag.LastPage = page - 1;
+            }
+            IEnumerable<Note> inboxNotes = patient.Inbox.Skip(resultsPerPage * ((int)page - 1)).Take(resultsPerPage);
             return View(inboxNotes);
         }
-
-
-        //public IActionResult Details()
-        //{
-        //    return View();
-        //}
 
         [HttpPost]
         public void ReadMessage(int id)

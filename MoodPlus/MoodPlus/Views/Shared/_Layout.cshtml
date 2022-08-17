@@ -36,20 +36,33 @@
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Note" asp-action="Inbox">Notes</a>
                             </li>
-                           
+
+                            <li class="nav-item">
+                                <a class="nav-link " asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name">Account</a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
                             </li>
                         }
+
+                         <li>
+                            <label class="switch">
+                                <input id="darkmodeSwitch" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
                             </li>
+
                         @if (User.Identity.IsAuthenticated)
                         {
                             @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name});  
                         }
+
                     </ul>
-                        
                         <partial name="_LoginPartial" />
                 </div>
             </div>
