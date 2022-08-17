@@ -6,7 +6,7 @@
 }
 
 .carousel__item {
-    max-height: 410px;
+    max-height: 450px;
     background: var(--HoverColor);
     padding: 0.5em;
     font-family: "Quicksand", sans-serif;
@@ -30,8 +30,8 @@
 }
 
 .carousel__button {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     display: inline-block;
     background: var(--HoverColor);
     border-radius: 50%;
