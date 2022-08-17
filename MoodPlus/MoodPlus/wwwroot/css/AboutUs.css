@@ -1,0 +1,11 @@
+﻿.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 4px;
+}
+
+.image {
+    width: 50%;
+    height: 90%;
+    object-fit: cover;
+}

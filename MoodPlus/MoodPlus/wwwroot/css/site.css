@@ -48,11 +48,11 @@ body {
     
 }
 
-.nav-link, #MLink {
+.nav-link, .MLink {
    
     font-size: larger;
 }
-.nav-link:hover, #MLink:hover, a:hover {
+.nav-link:hover, .MLink:hover, a:hover {
     background-color: var(--HoverColor);
     transition: 2s;
     transform: scale(1.07);
@@ -162,16 +162,3 @@ input:checked + .slider:before {
     
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-   
-}
-
-.image {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-    
-  
-}
