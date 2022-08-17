@@ -50,9 +50,18 @@
                             </li>
                             @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name});
                         }
+
+                         <li>
+                            <label class="switch">
+                                <input id="darkmodeSwitch" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
                             </li>
+
                     </ul>
                         
                         <partial name="_LoginPartial" />
