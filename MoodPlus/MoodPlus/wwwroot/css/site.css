@@ -20,6 +20,7 @@ html {
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+    
   }
 }
 
@@ -33,16 +34,20 @@ body {
    
     background-color: var(--backgroundColor);
 }
+
 #mainBody {
     background-color: var(--backgroundColor);
 }
+
 #mainNav {
     background-color: var(--backgroundColor);
 }
+
 #lineTest {
     background-color: var(--PrimaryColor);
     
 }
+
 .nav-link, #MLink {
    
     font-size: larger;
@@ -66,6 +71,9 @@ body {
     width: 0;
 }
 
+#policy-body {
+
+
 .slider{
     position: absolute;
     cursor: pointer;
@@ -77,6 +85,7 @@ body {
     -webkit-transition: .4s;
     transition: .4s;
 }
+
 
 .slider:before {
     position: absolute;
@@ -111,3 +120,45 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+#policy-header {
+    background-color: #60AEBF;
+    color: #F2EBDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#navItemStreak, #navItemStreak2 {
+    border-color: powderblue;
+    margin-left: 550px;
+    max-height:30px;
+    max-inline-size: 350px;
+    
+   
+}
+
+.form-floating {
+    display: flex;
+    padding: 5PX;
+
+}
+
+.col-md-4 {
+    margin: auto;
+    font-size: 1rem;
+}
+
+.navbar-toggler {
+    width: 65px;
+    height: 25px;
+    background-color: #1E90FF;
+    margin: 6px 0;
+    transition: 0.4s;
+    color: ghostwhite;
+    font-family: unset;
+    
+}
+
+

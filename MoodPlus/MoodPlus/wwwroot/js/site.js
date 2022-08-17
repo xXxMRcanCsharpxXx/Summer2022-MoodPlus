@@ -1,3 +1,4 @@
+
 ﻿const toggleSwitch = document.getElementById("darkmodeSwitch");
 const currentTheme = localStorage.getItem("theme");
 
@@ -21,3 +22,4 @@ function ToggleDarkMode(e) {
 }
 
 toggleSwitch.addEventListener("change", ToggleDarkMode, false);
+
