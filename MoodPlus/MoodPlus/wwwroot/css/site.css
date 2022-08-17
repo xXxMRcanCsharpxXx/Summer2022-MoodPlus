@@ -3,12 +3,21 @@
     --fontColor: #60AEBF;
     --PrimaryColor: #1A4B5F;
     --HoverColor: #60AEBF;
+    --StreakColor: #60AEBF;
+    --StreakText: #F2EBDC;
 }
 /*Create possible variables we may need.*/
 
 [data-theme="dark"] {
     --fontColor: #1A4B5F;
     --backgroundColor: #F2BC79;
+    --StreakColor: wheat;
+    --StreakText: tomato;
+}
+
+.navbar-nav{
+    justify-content: center;
+    align-items: center;
 }
 
 html {
@@ -55,14 +64,13 @@ body {
 .nav-link:hover, .MLink:hover, a:hover {
     background-color: var(--HoverColor);
     transition: 2s;
-    transform: scale(1.07);
+    transform: scale(1.00);
 }
 /*toggle switch for darkmode*/
 .switch{
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 34px;
 }
 
 .switch input {
@@ -75,7 +83,7 @@ body {
     position: absolute;
     cursor: pointer;
     top: 0;
-    left: 0;
+    left: 6px;
     right: 0;
     bottom: 0;
     background-color: #ccc;
@@ -86,9 +94,9 @@ body {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
+    height: 16px;
+    width: 16px;
+    left: 6px;
     bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
@@ -96,11 +104,11 @@ body {
 }
 
 input:checked + .slider {
-    background-color:aquamarine;
+    background-color: var(--HoverColor);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px aquamarine;
+    box-shadow: 0 0 1px var(--HoverColor);
 }
 
 input:checked + .slider:before {
@@ -130,15 +138,15 @@ input:checked + .slider:before {
 }
 
 #navItemStreak {
-    border-color:cornsilk;
-    border-width: 3px;
-    margin-left: 345px;
-    position:absolute;
-    background-color:wheat;
-    color: tomato;
+    border-style: none;
+    background-color: var(--StreakColor);
+    color: var(--StreakText);
     border-radius: 10px;
+}
+
+#streakNav {
+    margin-left: auto;
     
-   
 }
 
 .form-floating {
@@ -159,6 +167,5 @@ input:checked + .slider:before {
     transition: 0.4s;
     color: ghostwhite;
     font-family: unset;
-    
 }
 
