@@ -1,23 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Resources Page";
+    ViewData["Title"] = "Helpful Resources";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<h2>Use this page to find links to helpful resources!</h2>
-<p>Warning: Please note that these videos may be unsettling to some veiewers. Viewer Discretion is Advised, Keep in mind that these videos are educational, they are real life problems. Seek help with these links below: </p>
-<div>
-
-    <a id="vetHotLine" href="https://www.pleaselive.org/hotlines/"><img src="~/img/suicidePrevention.png" alt="National Crisis Hotlines" />List of national hotlines</a>
-        <h4>This link will provide all hotlines available on pleaselive.org</h4>
-   
+<h2>Click the images to be directed to that resource's website.</h2>
+<p>Warning: Please note that these videos may be unsettling to some viewers. Viewer Discretion is advised, Keep in mind that these videos are educational, they are real life problems. Seek help with these links below: </p>
+<div class="resource-container">
+    <div class="resource-card">
+    <a href="https://www.pleaselive.org/hotlines/"><img src="~/img/suicidePrevention.png" alt="National Crisis Hotlines" /></a>
+        <p>Click this image link for a list of all available hotlines.</p>
+    </div>
+   <div class="resource-card">
     <a href ="https://stjosephkc.com/our-services/outpatient-rehabilitation/"><img src="~/img/stJoseph.jpg" alt="Saint Joseph Medical Facility" /></a>
-        <p>Saint Joseph Medical Facility. Use this link to gather information.</p>
-
-    <a id="auroraMentalHealth" href="https://www.mentalhealthcenters.net/"><img src="~/img/R.jpg" alt="Aurora Mental Health" />Find a mental health facility near you.</a>
+         <p>Saint Joseph Medical Center's website. Click the image to be directed to the physical therapy information page.</p>
+   </div>
+   <div class="resource-card">
+    <a href="https://www.mentalhealthcenters.net/"><img src="~/img/1637182633logo.png" alt="Locate Mental Health facilities" /></a>
+        <p>This link will navigate you to a great resource used to help you find the right mental health facility near you! Search by City, County, or Zip.</p>
+   </div>
 </div>
 
 <div class="carousel">
+    <h3>Here is a few educational discussions addressing mental health.</h3>
     <div class="carousel__item">
         Ted Talk: How To Cope With Anxiety
         <iframe width="560" height="315" src="https://www.youtube.com/embed/WWloIAQpMcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
