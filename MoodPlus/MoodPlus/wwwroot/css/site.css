@@ -71,9 +71,6 @@ body {
     width: 0;
 }
 
-#policy-body {
-
-
 .slider{
     position: absolute;
     cursor: pointer;
@@ -85,7 +82,6 @@ body {
     -webkit-transition: .4s;
     transition: .4s;
 }
-
 
 .slider:before {
     position: absolute;
@@ -119,6 +115,10 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+#policy-body {
+
 }
 
 #policy-header {

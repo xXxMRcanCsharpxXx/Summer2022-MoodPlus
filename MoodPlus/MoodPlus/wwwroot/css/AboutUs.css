@@ -1,11 +1,17 @@
 ﻿.grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 4px;
+    padding: 2px 4px;
 }
 
 .image {
-    width: 50%;
-    height: 90%;
+    width: 260px;
+    height: 260px;
     object-fit: cover;
+    border: solid;
+    border-color: var(--PrimaryColor);
+}
+ul{
+    margin: 0;
+    padding: 2px;
 }
