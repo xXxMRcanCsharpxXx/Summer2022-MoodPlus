@@ -1,28 +1,38 @@
-﻿/*Carousel css*/
+﻿/*Carousel and Resource cards css*/
 .carousel {
+    margin: auto;
     position: relative;
     padding: 20px;
-    max-width: 690px;
+    max-width: 75%;
+}
+.carousel > h3 {
+    margin: auto;
 }
 
 .carousel__item {
+    margin: auto;
     max-height: 450px;
-    background: var(--HoverColor);
     font-family: "Quicksand", sans-serif;
     font-weight: bold;
     font-size: 2em;
-    color: var(--fontColor);
+    color: #F2EBDC;
     display: none;
 }
 
 .carousel__item--selected {
-    display: block;
+    margin: auto;
+    background: #1A4B5F;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 35px;
 }
 
 .carousel__nav {
-    width: 100%;
-    padding: 0px 5px;
+    width: 100%; 
     position: absolute;
     bottom: 0;
     left: 0;
@@ -33,14 +43,14 @@
     width: 15px;
     height: 15px;
     display: inline-block;
-    background: var(--HoverColor);
+    background: #1A4B5F;
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
 }
 
 .carousel__button--selected {
-    background: #1A4B5F;
+    background: var(--HoverColor);
 }
 
 .resource-container {
