@@ -25,6 +25,11 @@ p {
     padding: 5px 5px 5px 5px;
 }
 
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 #card-seperate {
     margin-left:20px;
     margin-right:20px;
