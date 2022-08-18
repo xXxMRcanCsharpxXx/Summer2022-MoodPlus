@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Note>
 
-
+    <div class="grid-box">
 <p>Inbox</p>
 
 <div>
@@ -29,7 +29,7 @@
     <a class="Journalbutton" href="/Note/Inbox/@ViewBag.NextPage">Next</a>
 }
 </div>
-
+</div>
 <form asp-action="Create">
     <input type="submit" value="Create" class="btn btn-primary" />
 </form>
@@ -55,5 +55,8 @@
     </script>*@
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/Inbox.css" asp-append-version="true" />
+}
 
 

@@ -1,0 +1,21 @@
+﻿.grid-box {
+    display: grid;
+    text-align: center;
+    border:dotted;
+    border-color: var(--PrimaryColor);
+    border-radius:10px;
+    background-color: #f09589;
+    color:black;
+    font-size: 20px;
+}
+
+.btn.btn-primary {
+    color: mintcream;
+    border: none;
+    background: #1a4b5f;
+    width: 75px;
+    height: 45px;
+    font-family:sans-serif;
+    text-decoration:underline;
+    font-weight:bold;
+}
