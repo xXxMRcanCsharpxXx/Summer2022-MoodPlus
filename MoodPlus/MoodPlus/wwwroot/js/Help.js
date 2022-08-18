@@ -34,3 +34,14 @@
     items[0].classList.add("carousel__item--selected");
     buttons[0].classList.add("carousel__button--selected");
 });
+
+// Automatic Carousel
+//const carousel = document.querySelector('.carousel');
+//const interval = setInterval(function () {
+//    startCarousel();
+//}, 3000);
+//var index = 1;
+
+//startCarousel = () => {
+    
+//}
