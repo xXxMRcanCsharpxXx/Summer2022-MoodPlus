@@ -16,10 +16,28 @@
     --StreakText: tomato;
 }
 
-.navbar-nav{
+.navbar-nav {
     justify-content: center;
     align-items: center;
+    background-color:blanchedalmond;
+    border-radius:20px;
+
 }
+
+.foot-container {
+    background-color: blanchedalmond;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    
+}
+
+
+.topnav-centered{
+    display:flex;
+
+}
+
 
 html {
     font-size: 14px;
@@ -51,6 +69,23 @@ body {
 
 #mainNav {
     background-color: var(--backgroundColor);
+    display:flex;
+    width:100%;
+    
+   
+
+}
+
+#navbar-links{
+    display:flex;
+    width: 100%;
+    justify-content:center;
+    margin:0px auto;
+   
+}
+
+#navbar-logo{
+ position:absolute;
 }
 
 #lineTest {
@@ -66,8 +101,9 @@ body {
 .nav-link:hover, #MLink:hover {
     border-radius: 20px;
     background-color: var(--HoverColor);
-    transition: 2s;
+    transition: 1s;
     transform: scale(1.00);
+    
 }
 /*toggle switch for darkmode*/
 .switch{

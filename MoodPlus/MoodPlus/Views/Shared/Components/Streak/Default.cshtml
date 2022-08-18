@@ -1,7 +1,7 @@
 ﻿@model Patient 
 <li id="streakNav">
 
-    <a  asp-controller="Patient" asp-action="Details" asp-route-id="@User.Identity.Name"> 
+    <a  asp-area="" asp-controller="Entry" asp-action="Index"> 
         <button id="navItemStreak">
             Current 🔥  @Model.Streak /
             Longest 🔥 @Model.LongestStreak

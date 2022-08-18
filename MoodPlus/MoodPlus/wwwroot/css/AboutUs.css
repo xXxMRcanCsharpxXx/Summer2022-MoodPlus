@@ -1,9 +1,12 @@
 ﻿.grid-container {
     display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: start;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 2px 4px;
     text-align: center;
-    grid-gap: 10px;
+    grid-row-gap: 300px;
 }
 
 .image {
@@ -17,6 +20,16 @@ ul {
     margin: 0;
     padding: 2px;
     color: var(--PrimaryColor);
+}
+p {
+    padding: 5px 5px 5px 5px;
+}
+
+#card-seperate {
+    margin-left:20px;
+    margin-right:20px;
+    border-bottom: 1px solid;
+    border-spacing: 10px;
 }
 .photo-card {
     background-color: white;

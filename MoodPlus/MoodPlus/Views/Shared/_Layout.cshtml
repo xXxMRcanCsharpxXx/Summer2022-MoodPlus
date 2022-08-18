@@ -16,6 +16,7 @@
 </head>
 <body id = "mainBody">
     <header id = "mainHeader">
+
         @await RenderSectionAsync("Graph", required: false)
         <nav   class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div id = "mainNav" class="container-fluid">
@@ -26,24 +27,26 @@
                 </button>
                 <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
                         
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Entry" asp-action="Index">Journal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Note" asp-action="Inbox">Notes</a>
-                            </li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="" asp-controller="Entry" asp-action="Index">Journal</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link " asp-area="" asp-controller="Note" asp-action="Inbox">Notes</a>
+                                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
-                            </li>
-                        }
+                                        <li class="nav-item">
+                                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Graph">Graph</a>
+                                        </li>
+                                    }
 
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
-                        </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
+                                    </li>
+
 
                          <li>
                             <label class="switch">
@@ -53,16 +56,26 @@
                             <img style="margin-bottom: 4px" src="/img/moon.png" height="20" width="20"/>
                         </li>
 
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name});  
-                        }
 
-                    </ul>
-                        <partial name="_LoginPartial" />
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name});  
+                                    }
+                                    <li>  
+                                        <div class="topnav-right">
+                                            <partial name="_LoginPartial" />
+                                        </div>
+
+                                    </li>
+                                </ul> 
+                           
+                            </div>
+                       
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -71,7 +84,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="foot-container">
             &copy; 2022 - Mood+ - <a class ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - <a class ="MLink" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
         </div>
     </footer>
