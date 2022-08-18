@@ -14,21 +14,24 @@
     <link rel="icon" href="/img/faviconV3.ico" type="image/x-icon">
     @await RenderSectionAsync("Styles", required: false)
 </head>
-<body id = "mainBody">
-    <header id = "mainHeader">
+<body id="mainBody">
+    <header id="mainHeader">
+        <div class="topnav">
+            @await RenderSectionAsync("Graph", required: false)
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
+                <div id="mainNav">
+                    <a id="navbar-logo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/moodplusv14.png" height="40px" width="60px" /></a>
+                    <div id="navbar-links">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            Menu
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div>
+                            <div class="topnav-centered">
+                                <ul class="navbar-nav flex-grow-1">
 
-        @await RenderSectionAsync("Graph", required: false)
-        <nav   class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
-            <div id = "mainNav" class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/moodplusv14.png" height="40px" width="60px"/></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">Menu
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
 
-                        
                                     @if (User.Identity.IsAuthenticated)
                                     {
                                         <li class="nav-item">
@@ -48,29 +51,30 @@
                                     </li>
 
 
-                         <li>
-                            <label class="switch">
-                                <input id="darkmodeSwitch" type="checkbox">
-                                <span class="slider round"></span>
-                            </label>
-                            <img style="margin-bottom: 4px" src="/img/moon.png" height="20" width="20"/>
-                        </li>
+                                    <li>
+                                        <label class="switch">
+                                            <input id="darkmodeSwitch" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <img style="margin-bottom: 4px" src="/img/moon.png" height="20" width="20" />
+                                    </li>
 
 
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name});  
+                                        @await Component.InvokeAsync("Streak", new { userId=User.Identity.Name})
+                                        ;
                                     }
-                                    <li>  
+                                    <li>
                                         <div class="topnav-right">
                                             <partial name="_LoginPartial" />
                                         </div>
 
                                     </li>
-                                </ul> 
-                           
+                                </ul>
+
                             </div>
-                       
+
                         </div>
                     </div>
                 </div>
@@ -85,7 +89,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="foot-container">
-            &copy; 2022 - Mood+ - <a class ="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - <a class ="MLink" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+            &copy; 2022 - Mood+ - <a class="MLink" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - <a class="MLink" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
