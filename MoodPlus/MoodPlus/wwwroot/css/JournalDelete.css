@@ -1,4 +1,4 @@
-﻿.BodyUpdate {
+﻿.BodyDelete {
     background-color: #F09589;
     padding: 20px;
     border-color: #60AEBF;
@@ -8,6 +8,7 @@
     margin-top: 50px;
     height: 45%;
 }
+
 .BodyBox {
     height: 200px;
     width: 80%;
@@ -15,7 +16,7 @@
     border-radius: 15px;
 }
 
-#UpdateBtn {
+#DeleteBtn {
     background-color: #1a4B5f;
     color: #F2EBDC;
     padding: 14px 15px;
