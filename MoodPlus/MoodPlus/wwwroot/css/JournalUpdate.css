@@ -1,0 +1,22 @@
+﻿.BodyUpdate {
+    width: 100%;
+ 
+    height: 85%;
+    padding-top: 10%;
+    padding-bottom: 20px;
+    background-color: #F09589;
+}
+.BodyBox {
+    height: 70%;
+}
+
+#UpdateBtn {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 25px;
+}

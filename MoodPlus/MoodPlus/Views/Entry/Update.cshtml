@@ -4,13 +4,13 @@
     ViewData["Title"] = "Update";
 }
 @section Styles{
-    <link rel="stylesheet" href="~/css/journal.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/JournalUpdate.css" asp-append-version="true" />
 }
 
 <h3>Update your journal</h3>
 
 
-<hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Update">
@@ -27,19 +27,18 @@
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="BodyUpdate form-group">
-                <label asp-for="Body" class="control-label"></label>
-                <input asp-for="Body" class="form-control" />
+                <input asp-for="Body" class="BodyBox form-control" />
                 <span asp-validation-for="Body" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" id="UpdateBtn" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back</a>
+    <a asp-action="Index">Go Back!</a>
 </div>
 
 @section Scripts {
