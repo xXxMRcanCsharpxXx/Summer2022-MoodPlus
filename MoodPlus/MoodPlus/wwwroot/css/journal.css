@@ -1,11 +1,11 @@
 ﻿.JournalItem {
-    
     background-color: #F09589;
     padding: 20px;
     border-color: #60AEBF;
     border: dotted;
     margin-bottom: 20px;
     border-radius: 25px;
+    margin-top: 50px;
 }
 
 .JournalHeader {
@@ -18,7 +18,8 @@
     grid-template-rows: repeat(4, 1f1r);
     font-family: "Figtree", sans-serif;
 }
-.MoodItem {
+.MoodGridItem {
+    display:flex;
     
 }
 .Journalbutton:link {
@@ -29,7 +30,8 @@
     font-weight: 700;
     display: inline-block;
     border-radius: 10px;
-    
+    text-decoration: none;
+  
 }
 .Journalbutton:visited {
     color: #F2EBDC;
@@ -39,6 +41,21 @@
 .emoji {
     height: 25px;
     width: 25px;
+    margin-right:5px;
    
 }
- 
+#DeleteBtn {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 10px;
+}
+.JournalMainBtn {
+    display:flex;
+}
+#CreateBtn {
+    margin-left: 15px;
+}

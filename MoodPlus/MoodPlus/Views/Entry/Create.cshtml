@@ -26,10 +26,11 @@
             <div class="MoodGridForm">
                 <div class="moodForm">
                     <div class="MoodCreate form-check">
+                        
                         <label class="form-check-label">
-                         <input class="form-check-input" asp-for="Anxiety" /> @Html.DisplayNameFor(model => model.Anxiety)
+                        <input class="form-check-input" asp-for="Anxiety" /> @Html.DisplayNameFor(model => model.Anxiety)
                         <img class="emoji" src="~/img/Anxiety_icon.png">
-                     </label>
+                        </label>
                     </div>
                     <div class="MoodGridCreate">
                         <input asp-for="AnxietyRating" class="form-control" min="0" max="5" value="0"/>
@@ -63,7 +64,7 @@
                 <div class="moodForm">
                     <div class="MoodCreate form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Sadness" /> @Html.DisplayNameFor(model => model.Sadness)
+                        <input class="form-check-input" asp-for="Sadness" /> @Html.DisplayNameFor(model => model.Sadness)
                         <img class="emoji" src="~/img/Sadness_icon.png" />
                         </label>
                     </div>
@@ -75,7 +76,7 @@
                  <div class="moodForm">
                     <div class="MoodCreate form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Overwhelmed" /> @Html.DisplayNameFor(model => model.Overwhelmed)
+                        <input class="form-check-input" asp-for="Overwhelmed" /> @Html.DisplayNameFor(model => model.Overwhelmed)
                         <img class="emoji" src="~/img/Overwhelmed_icon.png" />
                         </label>
                     </div>
@@ -87,12 +88,11 @@
                  <div class="moodForm">
                     <div class="MoodCreate form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Anger" /> @Html.DisplayNameFor(model => model.Anger)
+                        <input class="form-check-input" asp-for="Anger" /> @Html.DisplayNameFor(model => model.Anger)
                         <img class="emoji" src="~/img/Anger_icon.png" />
                         </label>
                     </div>
                     <div class="MoodGridCreate">
-                       
                         <input asp-for="AngerRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="AngerRating" class="text-danger"></span>
                     </div>
@@ -100,7 +100,7 @@
                  <div class="moodForm">
                     <div class="MoodCreate form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Calm" /> @Html.DisplayNameFor(model => model.Calm)
+                        <input class="form-check-input" asp-for="Calm" /> @Html.DisplayNameFor(model => model.Calm)
                        <img class="emoji" src="~/img/Calm_icon.png" />
                         </label>
                     </div>
@@ -112,12 +112,11 @@
                  <div class="moodForm">
                     <div class="MoodCreate form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Loved" /> @Html.DisplayNameFor(model => model.Loved)
+                         <input class="form-check-input" asp-for="Loved" /> @Html.DisplayNameFor(model => model.Loved)
                         <img class="emoji" src="~/img/Loved_icon.png" />
                         </label>
                     </div>
                     <div class="MoodGridCreate ">
-                      
                         <input asp-for="LovedRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="LovedRating" class="text-danger"></span>
                     </div>
@@ -125,7 +124,10 @@
             </div>
             <div>
                 <br />
+                <div class="ThoughtsHeading">
+                <h2>Thoughts</h2>
                 <p class="EntryIntro">What's going through your mind today? If you want, jot some thoughts down.</p>
+                </div>
                 <div class="JournalBody">
                     <label asp-for="Body" class="ThoughtsCreate control-label">My Thoughts...</label>
                     <textarea asp-for="Body" class="BodyCreate form-control"  id="comment"></textarea>
