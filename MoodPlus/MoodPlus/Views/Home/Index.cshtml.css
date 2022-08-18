@@ -13,16 +13,26 @@ section {
     height: 50vh;
 }
 
+section .box p {
+    position: relative;
+    margin: 0 0 14px;
+    padding: 0;
+    font-size: 18px;
+    z-index: 2;
+    color: var(--PrimaryColor);
+}
 section .box {
     position: relative;
     max-width: 750px;
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0, .5);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
     overflow: hidden;
     background-color: var(--cardBackgroundColor);
 }
-section .box::before{
+
+section .box::before {
     content: '';
     position: absolute;
     top: 20px;
@@ -30,6 +40,7 @@ section .box::before{
     left: 20px;
     right: 20px;
 }
+
 section .box h2 {
     position: relative;
     margin: 0;
@@ -40,34 +51,31 @@ section .box h2 {
     color: var(--PrimaryColor);
 }
 
-section .box p {
-    position: relative;
-    margin: 0 0 20px;
-    font-size: 18px;
-    padding: 0;
-    z-index: 2;
-    color: var(--PrimaryColor);
-}
 img {
     margin: 0;
     position: absolute;
     overflow: hidden;
-    filter: blur(7px);
+    opacity: 40%;
+    left: 50vw;
+    transform: translate(-50%,0);
 }
-container{
+
+container {
     display: grid;
     position: relative;
-    padding-top: 250px;
+    padding-top: 500px;
 }
+
 #paraHome {
     position: relative;
-    margin: 60px;
+    margin: 40px;
     padding: 14px;
     align-items: center;
     text-align: left;
-    border-radius: 20px;
+    font-size: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
     background-color: var(--cardBackgroundColor);
-    border: solid;
-    border-color: var(--hoverColor);
     color: var(--PrimaryColor);
 }

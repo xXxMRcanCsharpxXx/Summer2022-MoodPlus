@@ -3,32 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MoodPlus</title>
+    <title>@ViewData["Title"] - Mood+</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MoodPlus.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DynaPuff">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Figtree">
-    <link rel="shortcut icon" href="/img/faviconV2.ico" type="image/x-icon">
-    <link rel="icon" href="/img/faviconV2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/faviconV3.ico" type="image/x-icon">
+    <link rel="icon" href="/img/faviconV3.ico" type="image/x-icon">
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body id = "mainBody">
     <header id = "mainHeader">
-        <div class="topnav">
-            @await RenderSectionAsync("Graph", required: false)
-            <nav   class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
-                <div id = "mainNav">
-                    <a id="navbar-logo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/moodplusv10.png" height="40px" width="60px"/></a>
-                    <div id="navbar-links">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">Menu
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div>
-                            <div class="topnav-centered">
-                                <ul class="navbar-nav flex-grow-1">
+
+        @await RenderSectionAsync("Graph", required: false)
+        <nav   class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
+            <div id = "mainNav" class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/moodplusv14.png" height="40px" width="60px"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">Menu
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
                         
                                     @if (User.Identity.IsAuthenticated)
                                     {
@@ -48,12 +47,15 @@
                                         <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
                                     </li>
 
-                                     <li>
-                                        <label class="switch">
-                                            <input id="darkmodeSwitch" type="checkbox">
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </li>
+
+                         <li>
+                            <label class="switch">
+                                <input id="darkmodeSwitch" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            <img style="margin-bottom: 4px" src="/img/moon.png" height="20" width="20"/>
+                        </li>
+
 
                                     @if (User.Identity.IsAuthenticated)
                                     {
