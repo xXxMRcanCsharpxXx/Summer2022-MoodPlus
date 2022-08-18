@@ -1,0 +1,73 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    background-attachment: fixed;
+    height: 50vh;
+}
+
+section .box {
+    position: relative;
+    max-width: 750px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0, .5);
+    overflow: hidden;
+    background-color: var(--cardBackgroundColor);
+}
+section .box::before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+section .box h2 {
+    position: relative;
+    margin: 0;
+    font-size: 48px;
+    padding: 0;
+    text-transform: uppercase;
+    z-index: 2;
+    color: var(--PrimaryColor);
+}
+
+section .box p {
+    position: relative;
+    margin: 0 0 20px;
+    font-size: 18px;
+    padding: 0;
+    z-index: 2;
+    color: var(--PrimaryColor);
+}
+img {
+    margin: 0;
+    position: absolute;
+    overflow: hidden;
+    filter: blur(7px);
+}
+container{
+    display: grid;
+    position: relative;
+    padding-top: 250px;
+}
+#paraHome {
+    position: relative;
+    margin: 60px;
+    padding: 14px;
+    align-items: center;
+    text-align: left;
+    border-radius: 20px;
+    background-color: var(--cardBackgroundColor);
+    border: solid;
+    border-color: var(--hoverColor);
+    color: var(--PrimaryColor);
+}
