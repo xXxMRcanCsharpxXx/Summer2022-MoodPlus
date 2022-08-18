@@ -8,3 +8,14 @@
     color:black;
     font-size: 20px;
 }
+
+.btn.btn-primary {
+    color: mintcream;
+    border: none;
+    background: #1a4b5f;
+    width: 75px;
+    height: 45px;
+    font-family:sans-serif;
+    text-decoration:underline;
+    font-weight:bold;
+}
