@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MoodPlus</title>
+    <title>@ViewData["Title"] - Mood+</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MoodPlus.styles.css" asp-append-version="true" />
@@ -50,6 +50,7 @@
                                 <input id="darkmodeSwitch" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
+                            <img style="margin-bottom: 3px" src="/img/moon.png" margin="auto" height="23" width="20"/>
                         </li>
 
                         @if (User.Identity.IsAuthenticated)
