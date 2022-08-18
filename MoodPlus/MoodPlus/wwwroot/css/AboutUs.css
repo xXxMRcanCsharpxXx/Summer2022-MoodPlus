@@ -1,5 +1,7 @@
 ﻿.grid-container {
     display: grid;
+    justify-content: center;
+    align-items: start;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 2px 4px;
     text-align: center;
