@@ -10,7 +10,7 @@
     
     <a class="Journalbutton" asp-action="Create">Create</a>
    
-    <hr />
+   
     @foreach ( Entry entry in Model) {
         <div class= "JournalItem">
             <h5 class="JournalHeader ">My Thoughts:</h5>
@@ -20,7 +20,7 @@
                 @foreach (MoodRating mood in entry.Moods)
                 {
                     <img class="emoji" src="~/img/@(mood.Feeling)_icon.png"> 
-                    <p class="MoodItem">@mood.Feeling @mood.Rating</p>
+                    <p  >@mood.Feeling @mood.Rating</p>
                 }
             </div>
             <a class="Journalbutton" asp-action="Update" asp-route-id="@entry?.Id">Update</a> 

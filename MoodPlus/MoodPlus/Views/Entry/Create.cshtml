@@ -4,13 +4,13 @@
     ViewData["Title"] = "Create";
 }
 @section Styles{
-    <link rel="stylesheet" href="~/css/journal.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/JournalCreate.css" asp-append-version="true" />
 }
 
 
 <h2>Journal Entry</h2>
-<p id=" EntryIntro">  What moods are you feeling? Check and rate your moods below. </p>
-<hr />
+<p class="EntryIntro">  What moods are you feeling? Check and rate your moods below. </p>
+<br />
 <div class="row">
     <div >
         <form asp-action="Create">
@@ -32,7 +32,6 @@
                      </label>
                     </div>
                     <div class="MoodGridCreate">
-                        
                         <input asp-for="AnxietyRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="AnxietyRating" class="text-danger"></span>
                     </div>
@@ -45,7 +44,6 @@
                      </label>
                     </div>
                     <div class="MoodGridCreate">
-                        
                         <input asp-for="HappinessRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="HappinessRating" class="text-danger"></span>
                     </div>
@@ -58,7 +56,6 @@
                       </label>
                      </div>
                     <div class="MoodGridCreate">
-                        
                         <input asp-for="StressedRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="StressedRating" class="text-danger"></span>
                     </div>
@@ -71,7 +68,6 @@
                         </label>
                     </div>
                     <div class="MoodGridCreate">
-                       
                         <input asp-for="SadnessRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="SadnessRating" class="text-danger"></span>
                     </div>
@@ -84,7 +80,6 @@
                         </label>
                     </div>
                     <div class="MoodGridCreate">
-                    
                         <input asp-for="OverwhelmedRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="OverwhelmedRating" class="text-danger"></span>
                     </div>
@@ -110,7 +105,6 @@
                         </label>
                     </div>
                     <div class="MoodGridCreate">
-                        
                         <input asp-for="CalmRating" class="form-control" min="0" max="5" value="0"/>
                         <span asp-validation-for="CalmRating" class="text-danger"></span>
                     </div>
@@ -130,10 +124,11 @@
                 </div>
             </div>
             <div>
-                <p>What's going through your mind today? If you want, jot some thoughts down.</p>
+                <br />
+                <p class="EntryIntro">What's going through your mind today? If you want, jot some thoughts down.</p>
                 <div class="JournalBody">
                     <label asp-for="Body" class="ThoughtsCreate control-label">My Thoughts...</label>
-                    <textarea asp-for="Body" class="BodyCreate form-control" rows="1" id="comment"></textarea>
+                    <textarea asp-for="Body" class="BodyCreate form-control"  id="comment"></textarea>
                     <span asp-validation-for="Body" class="text-danger"></span>
                 </div>
                 <div >
@@ -144,9 +139,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
