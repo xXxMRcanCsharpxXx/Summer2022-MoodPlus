@@ -3,7 +3,7 @@
     --backgroundColor: #F2EBDC;
     --fontColor: #1A4B5F;
     --PrimaryColor: #1A4B5F;
-    --HoverColor: #60AEBF;
+    --HoverColor: #f78a2293;
     --StreakColor: #60AEBF;
     --StreakText: #F2EBDC;
     --navBackgroundColor: blanchedalmond;
@@ -38,15 +38,19 @@
 
     background-color: var(--navBackgroundColor);
     border-radius: 20px;
+   
 
 }
 
 .foot-container {
     background-color: blanchedalmond;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width:100%;
-    display:flex
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+    
     
 }
 
@@ -111,6 +115,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--fontColor);
 }
 
 #lineTest {
@@ -119,13 +124,18 @@ body {
 
 .nav-link, .MLink {
     font-size: larger;
+    color:darkorange
 }
+
+
 
 .nav-link:hover, #MLink:hover {
     border-radius: 20px;
-    background-color: var(--HoverColor);
-    transition: 1s;
+    background-color: var(--StreakColor);
+    transition: .5s;
     transform: scale(1.00);
+    color: var(--fontColor);
+    width:auto;
     
 }
 /*toggle switch for darkmode*/
