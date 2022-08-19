@@ -1,16 +1,22 @@
 :root {
-    --cardBackgroundColor: #F09589;
-    --backgroundColor: #F2EBDC;
+    --blueCardColor: #1a4b5f;
+    --pinkCardColor: #F09589;
+    --backgroundColor: #F2BC79;
     --fontColor: #1A4B5F;
-    --PrimaryColor: #1A4B5F;
-    --HoverColor: #60AEBF;
+    --navBackgroundColor: #F09589;
     --StreakColor: #60AEBF;
     --StreakText: #F2EBDC;
-    --navBackgroundColor: blanchedalmond;
-
 }
 /*Create possible variables we may need.*/
-
+[data-theme="dark"] {
+    --blueCardColor: #112A40;
+    --pinkCardColor: #112A40;
+    --fontColor: #bf926b;
+    --backgroundColor: #591124;
+    --navBackgroundColor: #BF926B;
+    --StreakColor: wheat;
+    --StreakText: tomato;
+}
 ::-webkit-scrollbar {
     width: 20px;
 }
@@ -25,17 +31,11 @@
     border-radius: 10px;
 }
 
-[data-theme="dark"] {
-    --fontColor: #1A4B5F;
-    --backgroundColor: #F2BC79;
-    --StreakColor: wheat;
-    --StreakText: tomato;
-}
+
 
 .navbar-nav {
     justify-content: center;
     align-items: center;
-
     background-color: var(--navBackgroundColor);
     border-radius: 20px;
 
@@ -123,7 +123,7 @@ body {
 
 .nav-link:hover, #MLink:hover {
     border-radius: 20px;
-    background-color: var(--HoverColor);
+    background-color: var(--StreakColor);
     transition: 1s;
     transform: scale(1.00);
     
@@ -166,11 +166,11 @@ body {
 }
 
 input:checked + .slider {
-    background-color: var(--HoverColor);
+    background-color: var(--StreakColor);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px var(--HoverColor);
+    box-shadow: 0 0 1px var(--StreakColor);
 }
 
 input:checked + .slider:before {

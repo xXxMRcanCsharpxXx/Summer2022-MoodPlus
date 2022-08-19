@@ -3,7 +3,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     width: 100%;
-    background-color: #F09589;
+    background-color: var(--pinkCardColor);
     font-family: "Figtree";
     padding: 25px;
     gap: 45px;
