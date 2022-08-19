@@ -21,7 +21,7 @@
 
 .carousel__item--selected {
     margin: auto;
-    background: #1A4B5F;
+    background: var(--blueCardColor);
     width: 100%;
     padding-top: 56.25%;
     border-radius: 20px;
@@ -71,7 +71,7 @@
     justify-items: center;
     margin: 20px;
     border-radius: 20px;
-    background: var(--cardBackgroundColor);
+    background: var(--pinkCardColor);
 }
 
 .resource-card > a, p {
