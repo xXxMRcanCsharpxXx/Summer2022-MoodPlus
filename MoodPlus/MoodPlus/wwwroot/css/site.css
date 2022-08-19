@@ -60,15 +60,20 @@ input, a {
     align-items: center;
     background-color: var(--navBackgroundColor);
     border-radius: 20px;
+
     font-family: "Figtree", "Courier New";
+
 }
 
 .foot-container {
     background-color: blanchedalmond;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 100%;
-    display: flex;
+
+    width:100%;
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
     font-family: "Figtree", "Courier New";
 }
 
@@ -133,6 +138,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--fontColor);
 }
 
 #lineTest {
@@ -141,13 +147,20 @@ body {
 
 .nav-link, .MLink {
     font-size: larger;
+    color:darkorange
 }
+
+
 
 .nav-link:hover, #MLink:hover {
     border-radius: 20px;
     background-color: var(--StreakColor);
-    transition: 1s;
+
+    transition: .5s;
+
     transform: scale(1.00);
+    color: var(--fontColor);
+    width:auto;
     
 }
 /*toggle switch for darkmode*/
