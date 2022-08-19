@@ -8,6 +8,7 @@
     --StreakText: #F2EBDC;
 }
 /*Create possible variables we may need.*/
+
 [data-theme="dark"] {
     --blueCardColor: #112A40;
     --pinkCardColor: #112A40;
@@ -17,6 +18,7 @@
     --StreakColor: wheat;
     --StreakText: tomato;
 }
+
 ::-webkit-scrollbar {
     width: 20px;
 }
@@ -32,22 +34,42 @@
 }
 
 
+[data-theme="dark"] {
+    --fontColor: #1A4B5F;
+    --backgroundColor: #F2BC79;
+    --StreakColor: wheat;
+    --StreakText: tomato;
+
+}
+
+p, ul {
+    font-family: "DynaPuff", "Courier New";
+}
+
+h1, h2 {
+    font-family: "Kanit", "Courier New";
+}
+
+input, a {
+    font-family: "Figtree", "Courier New";
+}
+
 
 .navbar-nav {
     justify-content: center;
     align-items: center;
     background-color: var(--navBackgroundColor);
     border-radius: 20px;
-
+    font-family: "Figtree", "Courier New";
 }
 
 .foot-container {
     background-color: blanchedalmond;
     justify-content: center;
     align-items: center;
-    width:100%;
-    display:flex
-    
+    width: 100%;
+    display: flex;
+    font-family: "Figtree", "Courier New";
 }
 
 
@@ -91,19 +113,19 @@ body {
     align-items: center;
     background-color: var(--backgroundColor);
     height: 80px;
-    display:flex;
-    width:100%;
+    display: flex;
+    width: 100%;
 }
 
 .topnav {
     box-shadow: 0 0 15px rgba(0,0,0, .5);
 }
 
-#navbar-links{
-    display:flex;
+#navbar-links {
+    display: flex;
     width: 100%;
-    justify-content:center;
-    margin:0px auto;
+    justify-content: center;
+    margin: 0px auto;
     align-items: center;
 }
 

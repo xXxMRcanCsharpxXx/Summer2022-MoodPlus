@@ -17,5 +17,9 @@
     display: block;
     width: 80%;
     height: 30%;
-    margin-bottom: 10px;
+}
+
+h4 {
+    margin-top: 15px;
+    font-family: "Figtree", "Courier New";
 }

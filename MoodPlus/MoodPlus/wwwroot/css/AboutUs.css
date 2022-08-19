@@ -20,9 +20,11 @@ ul {
     margin: 0;
     padding: 2px;
     color: var(--PrimaryColor);
+    font-family: "Figtree", "Courier New";
 }
 p {
     padding: 5px 5px 5px 5px;
+    font-family: "Figtree", "Courier New";
 }
 
 h1 {
