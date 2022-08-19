@@ -17,17 +17,12 @@ namespace MoodPlus.Controllers
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
-        public IActionResult Delete()
-        {
-            return RedirectToAction("Index");
-        }
 
-        [HttpPost]
         public IActionResult Delete(int id)
         {
             db.Notes.Remove(db.Notes.Find(id));
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Inbox");
 
         }
 
