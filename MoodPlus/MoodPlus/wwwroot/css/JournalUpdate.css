@@ -2,7 +2,6 @@
     background-color: #F09589;
     padding: 20px;
     border-color: #60AEBF;
-    border: dotted;
     margin-bottom: 20px;
     border-radius: 25px;
     margin-top: 50px;
@@ -15,7 +14,9 @@
     border-radius: 15px;
 }
 
-#UpdateBtn {
+#UpdateBtn, #backBtn {
+    text-decoration: none;
+    border: none;
     background-color: #1a4B5f;
     color: #F2EBDC;
     padding: 14px 15px;

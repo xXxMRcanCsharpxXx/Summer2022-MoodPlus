@@ -36,8 +36,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--navBackgroundColor);
-    border-radius:20px;
-
+    border-radius: 20px;
 }
 
 .foot-container {
@@ -51,6 +50,8 @@
 
 .topnav-centered{
     display:flex;
+    height: 55px;
+    width: 1200px;
 
 }
 
@@ -75,8 +76,8 @@ body {
 }
 
 #mainHeader {
-   
     background-color: var(--backgroundColor);
+    margin-bottom: 70px;
 }
 
 #mainBody {
@@ -84,12 +85,15 @@ body {
 }
 
 #mainNav {
+    align-items: center;
     background-color: var(--backgroundColor);
+    height: 80px;
     display:flex;
     width:100%;
-    
-   
+}
 
+.topnav {
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
 }
 
 #navbar-links{
@@ -97,20 +101,20 @@ body {
     width: 100%;
     justify-content:center;
     margin:0px auto;
-   
+    align-items: center;
 }
 
-#navbar-logo{
- position:absolute;
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #lineTest {
     background-color: var(--PrimaryColor);
-    
 }
 
 .nav-link, .MLink {
-   
     font-size: larger;
 }
 
@@ -180,10 +184,6 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-#policy-body {
-
-}
-
 #policy-header {
     background-color: #60AEBF;
     color: #F2EBDC;
@@ -223,4 +223,3 @@ input:checked + .slider:before {
     color: ghostwhite;
     font-family: unset;
 }
-
