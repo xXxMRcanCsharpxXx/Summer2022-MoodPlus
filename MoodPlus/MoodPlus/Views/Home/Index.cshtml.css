@@ -13,24 +13,24 @@ section {
     height: 50vh;
 }
 
-section .box p {
-    position: relative;
-    margin: 0 0 14px;
-    padding: 0;
-    font-size: 18px;
-    z-index: 2;
-    color: var(--PrimaryColor);
-}
-section .box {
-    position: relative;
-    max-width: 750px;
-    padding: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0, .5);
-    overflow: hidden;
-    background-color: var(--cardBackgroundColor);
-}
+    section .box p {
+        position: relative;
+        margin: 0 0 14px;
+        padding: 0;
+        font-size: 18px;
+        z-index: 2;
+        color: var(--fontColor);
+    }
+    section .box {
+        position: relative;
+        max-width: 750px;
+        padding: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        box-shadow: 0 0 15px rgba(0,0,0, .5);
+        overflow: hidden;
+        background-color: var(--navBackgroundColor);
+    }
 
 section .box::before {
     content: '';
