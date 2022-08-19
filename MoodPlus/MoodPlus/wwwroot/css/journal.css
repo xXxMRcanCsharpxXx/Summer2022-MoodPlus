@@ -1,5 +1,5 @@
 ﻿.JournalItem {
-    background-color: #F09589;
+    background-color: var(--pinkCardColor);
     padding: 20px;
     border-color: #60AEBF;
     margin-bottom: 20px;

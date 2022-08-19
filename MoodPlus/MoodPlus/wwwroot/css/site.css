@@ -1,15 +1,23 @@
 :root {
-    --cardBackgroundColor: #F09589;
-    --backgroundColor: #F2EBDC;
+    --blueCardColor: #1a4b5f;
+    --pinkCardColor: #F09589;
+    --backgroundColor: #F2BC79;
     --fontColor: #1A4B5F;
-    --PrimaryColor: #1A4B5F;
-    --HoverColor: #f78a2293;
+    --navBackgroundColor: #F09589;
     --StreakColor: #60AEBF;
     --StreakText: #F2EBDC;
-    --navBackgroundColor: blanchedalmond;
-
 }
 /*Create possible variables we may need.*/
+
+[data-theme="dark"] {
+    --blueCardColor: #112A40;
+    --pinkCardColor: #112A40;
+    --fontColor: #bf926b;
+    --backgroundColor: #591124;
+    --navBackgroundColor: #BF926B;
+    --StreakColor: wheat;
+    --StreakText: tomato;
+}
 
 ::-webkit-scrollbar {
     width: 20px;
@@ -25,20 +33,35 @@
     border-radius: 10px;
 }
 
+
 [data-theme="dark"] {
     --fontColor: #1A4B5F;
     --backgroundColor: #F2BC79;
     --StreakColor: wheat;
     --StreakText: tomato;
+
 }
+
+p, ul {
+    font-family: "DynaPuff", "Courier New";
+}
+
+h1, h2 {
+    font-family: "Kanit", "Courier New";
+}
+
+input, a {
+    font-family: "Figtree", "Courier New";
+}
+
 
 .navbar-nav {
     justify-content: center;
     align-items: center;
-
     background-color: var(--navBackgroundColor);
     border-radius: 20px;
-   
+
+    font-family: "Figtree", "Courier New";
 
 }
 
@@ -46,12 +69,12 @@
     background-color: blanchedalmond;
     justify-content: space-around;
     align-items: center;
+
     width:100%;
     display:flex;
     margin-left:auto;
     margin-right:auto;
-    
-    
+    font-family: "Figtree", "Courier New";
 }
 
 
@@ -95,19 +118,19 @@ body {
     align-items: center;
     background-color: var(--backgroundColor);
     height: 80px;
-    display:flex;
-    width:100%;
+    display: flex;
+    width: 100%;
 }
 
 .topnav {
     box-shadow: 0 0 15px rgba(0,0,0, .5);
 }
 
-#navbar-links{
-    display:flex;
+#navbar-links {
+    display: flex;
     width: 100%;
-    justify-content:center;
-    margin:0px auto;
+    justify-content: center;
+    margin: 0px auto;
     align-items: center;
 }
 
@@ -132,7 +155,9 @@ body {
 .nav-link:hover, #MLink:hover {
     border-radius: 20px;
     background-color: var(--StreakColor);
+
     transition: .5s;
+
     transform: scale(1.00);
     color: var(--fontColor);
     width:auto;
@@ -176,11 +201,11 @@ body {
 }
 
 input:checked + .slider {
-    background-color: var(--HoverColor);
+    background-color: var(--StreakColor);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px var(--HoverColor);
+    box-shadow: 0 0 1px var(--StreakColor);
 }
 
 input:checked + .slider:before {
