@@ -6,8 +6,24 @@
     --HoverColor: #60AEBF;
     --StreakColor: #60AEBF;
     --StreakText: #F2EBDC;
+    --navBackgroundColor: blanchedalmond;
+
 }
 /*Create possible variables we may need.*/
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--cardBackgroundColor);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--PrimaryColor);
+    border-radius: 10px;
+}
 
 [data-theme="dark"] {
     --fontColor: #1A4B5F;
@@ -19,8 +35,9 @@
 .navbar-nav {
     justify-content: center;
     align-items: center;
-    background-color:blanchedalmond;
-    border-radius:200px;
+
+    background-color: var(--navBackgroundColor);
+    border-radius: 20px;
 
 }
 
@@ -36,6 +53,8 @@
 
 .topnav-centered{
     display:flex;
+    height: 55px;
+    width: 1200px;
 
 }
 
@@ -60,8 +79,8 @@ body {
 }
 
 #mainHeader {
-   
     background-color: var(--backgroundColor);
+    margin-bottom: 70px;
 }
 
 #mainBody {
@@ -69,12 +88,15 @@ body {
 }
 
 #mainNav {
+    align-items: center;
     background-color: var(--backgroundColor);
+    height: 80px;
     display:flex;
     width:100%;
-    
-   
+}
 
+.topnav {
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
 }
 
 #navbar-links{
@@ -82,20 +104,20 @@ body {
     width: 100%;
     justify-content:center;
     margin:0px auto;
-   
+    align-items: center;
 }
 
-#navbar-logo{
- position:absolute;
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #lineTest {
     background-color: var(--PrimaryColor);
-    
 }
 
 .nav-link, .MLink {
-   
     font-size: larger;
 }
 
@@ -165,10 +187,6 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-#policy-body {
-
-}
-
 #policy-header {
     background-color: #60AEBF;
     color: #F2EBDC;
@@ -208,4 +226,3 @@ input:checked + .slider:before {
     color: ghostwhite;
     font-family: unset;
 }
-
