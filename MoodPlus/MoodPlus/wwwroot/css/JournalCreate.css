@@ -29,7 +29,7 @@
 
 .JournalBody {
     margin-top: 10px;
-    background-color: #1a4B5f;
+    background-color: var(--blueCardColor);
     height: 500px;
     border-radius: 10px;
 }

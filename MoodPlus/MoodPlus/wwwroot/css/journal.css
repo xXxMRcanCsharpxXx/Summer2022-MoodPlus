@@ -5,6 +5,7 @@
     margin-bottom: 20px;
     border-radius: 25px;
     margin-top: 50px;
+    color: var(--fontColor)
 }
 
 .JournalHeader {

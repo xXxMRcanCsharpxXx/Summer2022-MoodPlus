@@ -3,6 +3,7 @@
     --pinkCardColor: #F09589;
     --backgroundColor: #F2BC79;
     --fontColor: #1A4B5F;
+    --homeFontColor: #1A4B5F;
     --navBackgroundColor: #F09589;
     --StreakColor: #60AEBF;
     --StreakText: #F2EBDC;
@@ -14,6 +15,7 @@
     --pinkCardColor: #112A40;
     --fontColor: #bf926b;
     --backgroundColor: #591124;
+    --homeFontColor: #1A4B5F;
     --navBackgroundColor: #BF926B;
     --StreakColor: wheat;
     --StreakText: tomato;
@@ -24,23 +26,16 @@
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px var(--cardBackgroundColor);
+    box-shadow: inset 0 0 5px var(--pinkCardColor);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--PrimaryColor);
+    background: var(--homeFontColor);
     border-radius: 10px;
 }
 
 
-[data-theme="dark"] {
-    --fontColor: #1A4B5F;
-    --backgroundColor: #F2BC79;
-    --StreakColor: wheat;
-    --StreakText: tomato;
-
-}
 
 p, ul {
     font-family: "DynaPuff", "Courier New";
@@ -60,7 +55,7 @@ input, a {
     align-items: center;
     background-color: var(--navBackgroundColor);
     border-radius: 20px;
-
+    color: var(--homeFontColor);
     font-family: "Figtree", "Courier New";
 
 }
@@ -102,7 +97,7 @@ html {
 body {
     margin-bottom: 60px;
     background-color: var(--backgroundColor);
-    color: var(--fontColor);
+    color:var(--fontColor)
 }
 
 #mainHeader {
@@ -120,6 +115,7 @@ body {
     height: 80px;
     display: flex;
     width: 100%;
+    color: var(--homeFontColor);
 }
 
 .topnav {
@@ -138,16 +134,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--fontColor);
+    color: var(--homeFontColor);
 }
 
 #lineTest {
-    background-color: var(--PrimaryColor);
+    background-color: var(--StreakColor);
 }
 
 .nav-link, .MLink {
     font-size: larger;
-    color:darkorange
+    color:var(--homeFontColor)
 }
 
 
@@ -159,7 +155,7 @@ body {
     transition: .5s;
 
     transform: scale(1.00);
-    color: var(--fontColor);
+    color: var(--homeFontColor);
     width:auto;
     
 }

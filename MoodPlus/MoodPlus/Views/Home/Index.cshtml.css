@@ -19,7 +19,7 @@ section {
         padding: 0;
         font-size: 18px;
         z-index: 2;
-        color: var(--fontColor);
+        color: var(--homeFontColor);
     }
     section .box {
         position: relative;
@@ -48,7 +48,7 @@ section .box h2 {
     padding: 0;
     text-transform: uppercase;
     z-index: 2;
-    color: var(--PrimaryColor);
+    color: var(--homeFontColor);
 }
 
 img {
@@ -73,9 +73,8 @@ container {
     align-items: center;
     text-align: left;
     font-size: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+   border-radius: 20px;
     box-shadow: 0 0 15px rgba(0,0,0, .5);
-    background-color: var(--cardBackgroundColor);
-    color: var(--PrimaryColor);
+    background-color: var(--navBackgroundColor);
+    color: var(--homeFontColor);
 }
