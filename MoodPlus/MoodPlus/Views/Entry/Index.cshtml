@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="JournalMainBtn">
-    <h1 class="JournalHeading">Click to create a new journal entry!</h1>
+    <h1 class="JournalHeading">Click  below to create a new journal entry!</h1>
     <a id="CreateBtn" class="Journalbutton" asp-action="Create">Create</a>
 </div>
 
@@ -27,7 +27,7 @@
         <a class="Journalbutton" asp-action="Delete" asp-route-id="@entry?.Id">Delete</a>
     </div>
 }
-<div id="pageNav" class="JournalMainBtn">
+<div id="pageNav" class="JournalPagebtn">
     @if (ViewBag.HasLastPage)
     {
         <a class="Journalbutton" href="/Entry/Index/@ViewBag.LastPage">Prev</a>
