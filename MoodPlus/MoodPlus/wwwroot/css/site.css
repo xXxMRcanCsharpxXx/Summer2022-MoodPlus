@@ -64,11 +64,10 @@ input, a {
     background-color: blanchedalmond;
     justify-content: space-around;
     align-items: center;
-
+    position: absolute;
     width:100%;
     display:flex;
-    margin-left:auto;
-    margin-right:auto;
+    margin: auto;
     font-family: "Figtree", "Courier New";
 }
 
@@ -95,7 +94,7 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    margin: auto;
     background-color: var(--backgroundColor);
     color:var(--fontColor)
 }
