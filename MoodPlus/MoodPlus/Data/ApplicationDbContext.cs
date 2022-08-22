@@ -16,7 +16,7 @@ namespace MoodPlus.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=Summer2022_MoodPlus;Trusted_Connection=True;";
+            string connectionString = "";
             optionsBuilder.UseSqlServer(connectionString).UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }

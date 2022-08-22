@@ -31,6 +31,13 @@
                             <div class="topnav-centered">
                                 <ul class="navbar-nav flex-grow-1">
 
+                                    <li>
+                                        <label class="switch">
+                                            <input id="darkmodeSwitch" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <img style="margin-bottom: 4px; margin-right: 10px;" src="/img/moon.png" height="20" width="20" />
+                                    </li>
 
                                     @if (User.Identity.IsAuthenticated)
                                     {
@@ -48,15 +55,6 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Help">Resources</a>
-                                    </li>
-
-
-                                    <li>
-                                        <label class="switch">
-                                            <input id="darkmodeSwitch" type="checkbox">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <img style="margin-bottom: 4px" src="/img/moon.png" height="20" width="20" />
                                     </li>
 
 
