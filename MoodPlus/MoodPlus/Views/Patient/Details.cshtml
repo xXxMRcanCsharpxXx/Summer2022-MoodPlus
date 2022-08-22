@@ -1,0 +1,139 @@
+﻿@model MoodPlus.Models.Patient
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Account</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        @if(Model.Streak < 3)
+        {
+        <dt class = "col-sm-2">
+            <h6>Login Streak</h6>
+        </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Streak)
+            </dd>
+        }
+        @if(Model.Streak >= 3 && Model.Streak < 7)
+        {
+           <dt class = "col-sm-2">
+               <h6>Login Streak</h6>
+           </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.Streak)❤️</p>
+            </dd>
+        }
+        @if(Model.Streak >= 7 && Model.Streak < 14)
+        {
+            <dt class = "col-sm-2">
+                <h6>Login Streak</h6>
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.Streak)🏆</p>
+            </dd>
+        }
+        @if(Model.Streak >= 14 && Model.Streak < 21)
+        {
+            <dt class = "col-sm-2">
+                <h6>Login Streak</h6>
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.Streak)​🎖️​</p>
+            </dd>
+        }
+        @if(Model.Streak >= 21 && Model.Streak < 28)
+        {
+            <dt class = "col-sm-2">
+                <h6>Login Streak</h6>
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.Streak)​​🔥</p>
+            </dd>
+        }
+        @if(Model.Streak >= 28 && Model.Streak < 35)
+        {
+            <dt class = "col-sm-2">
+                <h6>Login Streak</h6>
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.Streak)​​⭐</p>
+            </dd>
+        }
+        @if(Model.Streak >= 35)
+        {
+            <dt class = "col-sm-2">
+                <h6>Login Streak</h6>
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.Streak)​🎆​</p>
+            </dd>
+        }
+        @if(Model.LongestStreak < 3)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.LongestStreak)
+            </dd>
+        }
+        @if(Model.LongestStreak >= 3 && Model.LongestStreak < 7)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.LongestStreak)❤️</p>
+            </dd>
+        }
+        @if(Model.LongestStreak >= 7 && Model.LongestStreak < 14)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.LongestStreak)🏆</p>
+            </dd>
+        }
+        @if(Model.LongestStreak >= 14 && Model.LongestStreak < 21)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.LongestStreak)​🎖️​</p>
+            </dd>
+        }
+        @if(Model.LongestStreak >= 21 && Model.LongestStreak < 28)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.LongestStreak)​​🔥</p>
+            </dd>
+        }
+        @if(Model.LongestStreak >= 28 && Model.LongestStreak < 35)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.LongestStreak)​​⭐</p>
+            </dd>
+        }
+        @if(Model.LongestStreak >= 35)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LongestStreak)
+            </dt>
+           <dd class = "col-sm-10">
+                <p>@Html.DisplayFor(model => model.LongestStreak)​🎆​</p>
+            </dd>
+        }
+    </dl>
+</div>

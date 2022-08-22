@@ -1,0 +1,81 @@
+﻿/*Carousel and Resource cards css*/
+.carousel {
+    margin: auto;
+    position: relative;
+    padding: 20px;
+    max-width: 75%;
+}
+.carousel > h3 {
+    margin: auto;
+}
+
+.carousel__item {
+    margin: auto;
+    max-height: 450px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    color: #F2EBDC;
+    display: none;
+}
+
+.carousel__item--selected {
+    margin: auto;
+    background: var(--blueCardColor);
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow: hidden;
+    padding: 35px;
+}
+
+.carousel__nav {
+    width: 100%; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.carousel__button {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: #1A4B5F;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel__button--selected {
+    background: var(--HoverColor);
+}
+
+.resource-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 30px;
+    border-bottom: solid 1px;
+    
+}
+
+.resource-card {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    margin: 20px;
+    border-radius: 20px;
+    background: var(--pinkCardColor);
+    color: var(--fontColor);
+}
+
+.resource-card > a, p {
+    margin: 30px;
+}
+

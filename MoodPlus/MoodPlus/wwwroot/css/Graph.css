@@ -1,0 +1,25 @@
+#StatGraphs {
+    display: grid;
+    height: 50vh;
+    width: 1500px;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(2, 50%);
+}
+
+.StatItem {
+    height: 25vh;
+    margin: 5px;
+    width: 350px;
+    margin-left: -50px;
+}
+
+.timelineGraph {
+    display: block;
+    width: 80%;
+    height: 30%;
+}
+
+h4 {
+    margin-top: 15px;
+    font-family: "Figtree", "Courier New";
+}

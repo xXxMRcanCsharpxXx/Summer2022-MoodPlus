@@ -1,18 +1,264 @@
+:root {
+    --blueCardColor: #1a4b5f;
+    --pinkCardColor: #F09589;
+    --backgroundColor: #F2BC79;
+    --fontColor: #1A4B5F;
+    --homeFontColor: #1A4B5F;
+    --navBackgroundColor: #F09589;
+    --StreakColor: #60AEBF;
+    --StreakText: #F2EBDC;
+}
+/*Create possible variables we may need.*/
+
+[data-theme="dark"] {
+    --blueCardColor: #112A40;
+    --pinkCardColor: #112A40;
+    --fontColor: #bf926b;
+    --backgroundColor: #591124;
+    --homeFontColor: #1A4B5F;
+    --navBackgroundColor: #BF926B;
+    --StreakColor: wheat;
+    --StreakText: tomato;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--homeFontColor);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--backgroundColor);
+}
+
+p, ul {
+    font-family: "DynaPuff", "Courier New";
+}
+
+h1, h2 {
+    font-family: "Kanit", "Courier New";
+}
+
+input, a {
+    font-family: "Figtree", "Courier New";
+}
+
+
+.navbar-nav {
+    justify-content: center;
+    align-items: center;
+    background-color: var(--navBackgroundColor);
+    border-radius: 20px;
+    color: var(--homeFontColor);
+    font-family: "Figtree", "Courier New";
+}
+
+.foot-container {
+    background-color: blanchedalmond;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width:100%;
+    display:flex;
+    margin: auto;
+    font-family: "Figtree", "Courier New";
+}
+
+
+.topnav-centered{
+    display:flex;
+    height: 55px;
+    width: fit-content;
+    margin: 10px;
+}
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+    
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+body {
+    margin: auto;
+    background-color: var(--backgroundColor);
+    color:var(--fontColor)
 }
 
-body {
-  margin-bottom: 60px;
+#mainHeader {
+    background-color: var(--backgroundColor);
+    margin-bottom: 70px;
+}
+
+#mainBody {
+    background-color: var(--backgroundColor);
+}
+
+#mainNav {
+    align-items: center;
+    background-color: var(--backgroundColor);
+    height: 80px;
+    display: flex;
+    width: 100%;
+    color: var(--homeFontColor);
+}
+
+.topnav {
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
+}
+
+#navbar-links {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    margin: 0px auto;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--homeFontColor);
+    z-index: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--navBackgroundColor);
+    border-radius: 10px;
+    flex-basis: 10%;
+}
+
+#lineTest {
+    background-color: var(--StreakColor);
+}
+
+.nav-link, .MLink {
+    font-size: larger;
+    color:var(--homeFontColor)
+}
+
+
+
+.nav-link:hover, #MLink:hover {
+    border-radius: 20px;
+    background-color: var(--StreakColor);
+
+    transition: .5s;
+
+    transform: scale(1.00);
+    color: var(--homeFontColor);
+    width:auto;
+    
+}
+/*toggle switch for darkmode*/
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+}
+
+.switch input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 6px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 6px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--StreakColor);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--StreakColor);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#policy-header {
+    background-color: #60AEBF;
+    color: #F2EBDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navItemStreak {
+    border-style: none;
+    background-color: var(--StreakColor);
+    color: var(--StreakText);
+    border-radius: 10px;
+}
+
+#streakNav {
+    margin-left: auto;
+    
+}
+
+.form-floating {
+    display: flex;
+    padding: 5PX;
+}
+
+.col-md-4 {
+    margin: auto;
+    font-size: 1rem;
+}
+
+.navbar-toggler {
+    width: 65px;
+    height: 25px;
+    background-color: #1E90FF;
+    margin: 6px 0;
+    transition: 0.4s;
+    color: ghostwhite;
+    font-family: unset;
 }

@@ -1,0 +1,15 @@
+﻿@model Patient 
+<li id="streakNav">
+
+    <a  asp-area="" asp-controller="Entry" asp-action="Index"> 
+        <button id="navItemStreak">
+            Current 🔥  @Model.Streak /
+            Longest 🔥 @Model.LongestStreak
+        </button>
+    </a>
+</li>
+@*<a id="navItemStreak2">
+   Longest 🔥 @Model.LongestStreak
+</a>
+</div>*@
+

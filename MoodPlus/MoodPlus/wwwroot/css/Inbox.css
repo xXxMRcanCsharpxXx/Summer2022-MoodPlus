@@ -1,0 +1,39 @@
+﻿.grid-box {
+    margin-bottom: 10px;
+    display: grid;
+    text-align: center;
+    border-color: var(--PrimaryColor);
+    border-radius: 20px;
+    background-color: #f09589;
+    color: black;
+    font-size: 20px;
+}
+
+.btn.btn-primary {
+    text-decoration: none;
+    border: none;
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.Journalbutton:link {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.Journalbutton:visited {
+    color: #F2EBDC;
+}

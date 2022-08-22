@@ -1,0 +1,79 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    background-attachment: fixed;
+    height: 50vh;
+}
+
+    section .box p {
+        position: relative;
+        margin: 0 0 14px;
+        padding: 0;
+        font-size: 18px;
+        z-index: 2;
+        color: var(--homeFontColor);
+    }
+    section .box {
+        position: relative;
+        max-width: 750px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0,0,0, .5);
+        overflow: hidden;
+        background-color: var(--navBackgroundColor);
+    }
+
+section .box::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+section .box h2 {
+    position: relative;
+    margin: 0;
+    font-size: 48px;
+    padding: 0;
+    text-transform: uppercase;
+    z-index: 2;
+    color: var(--homeFontColor);
+}
+
+img {
+    margin: 0;
+    position: absolute;
+    overflow: hidden;
+    opacity: 40%;
+    left: 50vw;
+    transform: translate(-50%,0);
+}
+
+container {
+    display: grid;
+    position: relative;
+    padding-top: 500px;
+}
+
+#paraHome {
+    position: relative;
+    margin: 40px;
+    padding: 14px;
+    align-items: center;
+    text-align: left;
+    font-size: 20px;
+   border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
+    background-color: var(--navBackgroundColor);
+    color: var(--homeFontColor);
+}

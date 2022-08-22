@@ -1,0 +1,361 @@
+﻿
+@section Graph {
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+}
+
+<div id="chartContainer" style="height: 300px; width: 100%; padding: 10px; display: inline-block;"></div>
+<h4>Statistics of the last 90 Entries</h4>
+<div id="StatGraphs">
+    <div id="chartContainerTwo" class="StatItem"></div>
+    <div id="chartContainerThree" class="StatItem"></div>
+    <div id="chartContainerFour" class="StatItem"></div>
+    <div id="chartContainerFive" class="StatItem"></div>
+    <div id="chartContainerSix" class="StatItem"></div>
+    <div id="chartContainerEight" class="StatItem"></div>
+    <div id="chartContainerSeven" class="StatItem"></div>
+    <div id="chartContainerNine" class="StatItem"></div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript"> 
+        window.onload = function () {
+            CanvasJS.addColorSet("happy", [
+                "#FF1222",
+                "#CC0E1B",
+				"#9E0B15",
+				"#6E080E",
+				"#54060B",
+				"#300306"
+            ]);
+
+			CanvasJS.addColorSet("anxious", [
+				"#FFC6AD",
+                "#BF9482",
+                "#947365",
+				"#755B50",
+				"#6E443A",
+				"#4F312A"
+            ]);
+
+			CanvasJS.addColorSet("angry", [
+				"#242FFF",
+				"#1C25C9",
+				"#171EA6",
+				"#131885",
+                "#0D115C",
+                "#050726"
+            ]);
+
+			CanvasJS.addColorSet("Calmed", [
+				"#FF7092",
+				"#C95973",
+				"#B04D64",
+				"#944154",
+                "#733241",
+                "#52242F"
+            ]);
+
+			CanvasJS.addColorSet("Love", [
+				"#FF08D6",
+				"#D907B6",
+				"#B00594",
+				"#8F0478",
+                "#730360",
+                "#540347"
+            ]);
+
+			CanvasJS.addColorSet("Stress", [
+				"#FFFF00",
+				"#C9CC16",
+				"#B5A500",
+				"#AD8A03",
+                "#827C04",
+                "#736D03"
+            ]);
+
+			CanvasJS.addColorSet("Sad", [
+				"#F25602",
+				"#C24502",
+				"#963602",
+				"#782B01",
+                "#5E2201",
+                "#451901"
+            ]);
+
+			CanvasJS.addColorSet("Overwhelm", [
+                "#A2FA43",
+                "#87D138",
+				"#669E2B",
+				"#538022",
+				"#476E1E",
+				"#324D15"
+            ]);
+
+            let chart = new CanvasJS.Chart("chartContainer", 
+            {
+                animationEnabled: true,
+                theme: "light2",
+                title: { text: "Your Mood Chart" },
+                backgroundColor:"#F2EBDC",
+                axisX: { valueFormatString: "DD MMM" },
+                axisY: { 
+                    title: "Mood Rating",
+                    interval: 1,
+                    minimum: 1,
+                    maximum: 5.5,
+                    margin: 10
+
+                },
+                toolTip: { shared: true },
+                legend: {
+                    cursor: "pointer",
+		            verticalAlign: "top",
+		            horizontalAlign: "center",
+		            dockInsidePlotArea: false,
+                    
+                },
+                data: [
+                    {
+                        type:"line",
+                        color: "red",
+		                axisYType: "primary",
+		                name: "Happiness",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Happiness)
+                    },
+                    {
+                        type:"line",
+                        color: "#B56727",
+		                axisYType: "primary",
+		                name: "Anxiety",
+		                showInLegend: true,
+		                markerSize:1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Anxiety)
+                    },
+                    {
+                        type:"line",
+                        color: "blue",
+		                axisYType: "primary",
+		                name: "Anger",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Anger)
+                    },
+                    {
+                        type:"line",
+                        color: " #F26B8A",
+		                axisYType: "primary",
+		                name: "Calm",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Calm)
+                    },
+                    {
+                        type:"line",
+                        color: "purple",
+		                axisYType: "primary",
+		                name: "Loved",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Loved)
+                    },
+                    {
+                        type:"line",
+                        color: "orange",
+		                axisYType: "primary",
+		                name: "Stressed",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Stressed)
+                    },
+                    {
+                        type:"line",
+                        color: "#893101",
+		                axisYType: "primary",
+		                name: "Sadness",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Sadness)
+                    },
+                    {
+                        type:"line",
+                        color: "#466D1D",
+		                axisYType: "primary",
+		                name: "Overwhelmed",
+		                showInLegend: true,
+		                markerSize: 1,
+                        xValueType: "dateTime",
+		                yValueFormatString: "#",
+                        dataPoints: @Html.Raw(ViewBag.Overwhelmed)
+                    },
+                ]
+
+            }
+            
+            ); 
+            chart.render();
+            let chartTwo = new CanvasJS.Chart("chartContainerTwo", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Happiness"
+	            },
+				colorSet: "happy",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label}\n {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.HappyDonut)
+	            }]
+            });
+            chartTwo.render();
+
+            let chartThree = new CanvasJS.Chart("chartContainerThree", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Anxiety"
+	            },
+                colorSet: "anxious",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label} {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.AnxiousDonut)
+	            }]
+            });
+            chartThree.render();
+
+            let chartFour = new CanvasJS.Chart("chartContainerFour", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Anger"
+	            },
+                colorSet: "angry",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label} {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.AngryDonut)
+	            }]
+            });
+            chartFour.render();
+            
+            let chartFive = new CanvasJS.Chart("chartContainerFive", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Calm"
+	            },
+                colorSet: "Calmed",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label} {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.CalmedDonut)
+	            }]
+            });
+            chartFive.render();
+            
+            let chartSix = new CanvasJS.Chart("chartContainerSix", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Loved"
+	            },
+                colorSet: "Love",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label} {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.LoveDonut)
+	            }]
+            });
+            chartSix.render();
+            
+            let chartSeven = new CanvasJS.Chart("chartContainerSeven", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Stressed"
+	            },
+                colorSet: "Stress",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label} {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.StressDonut)
+	            }]
+            });
+            chartSeven.render();
+			
+            let chartEight = new CanvasJS.Chart("chartContainerEight", {
+	            animationEnabled: true,
+                backgroundColor: "white",
+	            title: {
+		        text: "Sadness"
+	            },
+                colorSet: "Sad",
+	            data: [{
+		            type: "doughnut",
+		            startAngle: 270,
+		            indexLabelFontSize: 16,
+		            indexLabel: "{label} {y}%",
+		            toolTipContent: "<b>{label}:</b> {y}%",
+		            dataPoints: @Html.Raw(ViewBag.SadDonut)
+	            }]
+            });
+            chartEight.render();
+			
+            let chartNine = new CanvasJS.Chart("chartContainerNine", {
+                animationEnabled: true,
+                backgroundColor: "white",
+                title: {
+                    text: "Overwhelmed"
+                },
+                colorSet: "Overwhelm",
+                data: [{
+                    type: "doughnut",
+                    startAngle: 270,
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label} {y}%",
+                    toolTipContent: "<b>{label}:</b> {y}%",
+                    dataPoints: @Html.Raw(ViewBag.OverwhelmDonut)
+	            }]
+            });
+            chartNine.render();
+        }
+    </script>
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/Graph.css" asp-append-version="true" />
+}

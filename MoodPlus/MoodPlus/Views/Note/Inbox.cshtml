@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Note>
+
+    <div class="grid-box">
+<p>Inbox</p>
+
+<div>
+
+    @foreach(Note n in Model)
+    {
+
+       @* if(n.IsRead)
+        {*@
+            <p class="ReadMessage">@n.Quote</p>
+       @* }
+        else
+        {
+            <p onclick="MarkAsRead(@n.Id)" class="UnreadMessage">Someone sent you an inspirational quote, click to read!</p>
+        }*@
+    }
+</div>
+<div id="pageNav" class="JournalPagebtn">
+    @if (ViewBag.HasLastPage)
+    {
+        <a class="Journalbutton" href="/Note/Inbox/@ViewBag.LastPage">Prev</a>
+    }
+    
+    @if (ViewBag.HasNextPage)
+    {
+        <a class="Journalbutton" href="/Note/Inbox/@ViewBag.NextPage">Next</a>
+    }
+</div>
+<p> Page: @ViewBag.Page</p>
+</div>
+<form asp-action="Create">
+    <input type="submit" value="Create" class="btn btn-primary" />
+</form>
+
+@section Scripts{
+    @*<script>
+        function MarkAsRead(id){
+            $.ajax({
+                type: 'POST',
+                url: 'ReadMessage',
+                data: { id: id }
+            });
+            // style change here
+        }
+        let unreadMsg = Array.from(document.getElementsByClassName("UnreadMessage"));
+        unreadMsg.forEach(m => {
+            m.addEventListener("click", () => {
+                m.classList.remove("UnreadMessage");
+                m.classList.add("ReadMessage");
+            });
+        })
+        // add event listener that removes class and adds readmessage class for each thing in unreadmsg
+    </script>*@
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Inbox.css" asp-append-version="true" />
+}
+
+

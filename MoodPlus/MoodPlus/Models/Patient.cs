@@ -1,20 +1,20 @@
-﻿namespace MoodPlus.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MoodPlus.Models
 {
     public class Patient
     {
         public int Id { get; set; }
-        public int Anxiety { get; set; }
-        public int Fatigue { get; set; }
-        public int Happiness { get; set; }
-        public int Loneliness { get; set; }
-        public int Restless { get; set; }
-        public int Hunger { get; set; }
-        public int Sadness { get; set; }
-        public int Overwhelmed { get; set; }
-        public int Agrivated { get; set; }
-        public int Anger { get; set; }
-
-
-
+        public string AccountId { get; set; }
+        public virtual Account Account { get; set; }
+        public virtual List<Entry> Entries { get; set; }
+        [InverseProperty("Receiver")]
+        public virtual ICollection<Note> Inbox { get; set; }
+        [InverseProperty("Sender")]
+        public virtual ICollection<Note> Outbox { get; set; }
+        public int Streak { get; set; }
+        public int LongestStreak { get; set; }
+        public DateTime NextLogin { get; set; }
     }
+   
 }

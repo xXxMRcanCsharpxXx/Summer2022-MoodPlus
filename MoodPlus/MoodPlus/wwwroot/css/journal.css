@@ -1,0 +1,64 @@
+﻿.JournalItem {
+    background-color: var(--pinkCardColor);
+    padding: 20px;
+    border-color: #60AEBF;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    margin-top: 50px;
+    color: var(--fontColor)
+}
+
+.JournalHeader {
+    font-family: "Kanit", sans-serif;
+}
+
+
+.MoodGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1f1r);
+    font-family: "Figtree", sans-serif;
+}
+.MoodGridItem {
+    display:flex;
+    
+}
+.Journalbutton:link {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-right: 15px;
+}
+.Journalbutton:visited {
+    color: #F2EBDC;
+    
+}
+
+.emoji {
+    height: 25px;
+    width: 25px;
+    margin-right:5px;
+   
+}
+#DeleteBtn {
+    background-color: #1a4B5f;
+    color: #F2EBDC;
+    padding: 14px 15px;
+    text-align: center;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 10px;
+}
+.JournalMainBtn {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.JournalPagebtn {
+    display: flex;
+}
